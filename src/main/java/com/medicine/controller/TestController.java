@@ -12,12 +12,12 @@ import com.medicine.dto.TestScope;
 import com.medicine.service.Service;
 
 @Controller
-@RequestMapping("test")
+@RequestMapping("/test")
 public class TestController {
 	@Resource(name="serviceImpl")
 	private Service serviceImpl;
 	
-	@RequestMapping(value="test")
+	@RequestMapping("/test")
 	@ResponseBody
 	public List<TestScope> getDatatest(){
 		return this.serviceImpl.getDataTest();

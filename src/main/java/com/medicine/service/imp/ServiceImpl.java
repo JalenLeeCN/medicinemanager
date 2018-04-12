@@ -10,7 +10,6 @@ import com.medicine.service.Service;
 
 @org.springframework.stereotype.Service("serviceImpl")
 public class ServiceImpl implements Service {
-	@SuppressWarnings("restriction")
 	@Resource(name = "testDaoMapper")
 	private TestDaoMapper testDaoMapper;
 
