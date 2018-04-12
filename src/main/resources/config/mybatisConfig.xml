@@ -6,10 +6,5 @@
       <typeAliases>
           <!-- 全路径别名 -->
           <typeAlias type="com.medicine.dto.TestScope" alias="TestScope"/>
-<!-- 	      <package name="com.medicine.dto"/> -->
       </typeAliases>
-<!--   <mappers> -->
-<!--   	<mapper resource="sqlMapper/Test.xml"></mapper> -->
-<!--   </mappers> -->
   </configuration>
-  
