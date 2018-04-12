@@ -12,7 +12,7 @@ import com.medicine.dto.TestScope;
 import com.medicine.service.Service;
 
 @Controller
-@RequestMapping("test")
+@RequestMapping(value="test")
 public class TestController {
 	@Resource(name="serviceImpl")
 	private Service serviceImpl;
