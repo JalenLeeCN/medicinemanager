@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.medicine.model.User;
 /**
@@ -24,7 +25,19 @@ public class EnterController {
 	 * @return
 	 */
 	@RequestMapping("login")
+	@ResponseBody
 	public UserView login(User user){
-		return this.enterService.login(user);
+		User u = new User("aa","aa");
+		UserView uv = this.enterService.login(u);
+		System.out.println(uv.toString());
+//		if(uv.getName()==null)
+			
+		return uv;
+	}
+	
+	public boolean checkLoginName(String lgName){
+		boolean flag = false;
+		
+		return flag;
 	}
 }

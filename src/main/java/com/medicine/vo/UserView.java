@@ -1,20 +1,27 @@
 package com.medicine.vo;
 
-public class UserView {
-	private String name;//用户名
+import com.medicine.model.User;
+
+public class UserView extends User{
 	private Integer menuPerssion;//菜单权限
+	private Integer errState;//账密错误位
 	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	public Integer getMenuPerssion() {
 		return menuPerssion;
 	}
 	public void setMenuPerssion(Integer menuPerssion) {
 		this.menuPerssion = menuPerssion;
+	}
+	
+	public Integer getErrState() {
+		return errState;
+	}
+	public void setErrState(Integer errState) {
+		this.errState = errState;
+	}
+	@Override
+	public String toString() {
+		return "UserView [menuPerssion=" + menuPerssion + "]";
 	}
 	
 }
