@@ -1,4 +1,4 @@
-package com.medicine.service.imp;
+package com.medicine.service.impl;
 
 import java.util.List;
 
