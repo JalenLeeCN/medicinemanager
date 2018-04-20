@@ -21,4 +21,5 @@ public interface IEnterDao {
 	 * @return
 	 */
 	public String checkLoginName(String lgName);
+	public Integer register(User user);
 }

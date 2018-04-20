@@ -45,4 +45,24 @@ public class EnterController {
 			flag = true;
 		return flag;
 	}
+	/**
+	 * 注册用户
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping("register")
+	@ResponseBody
+	public boolean register(User user){
+		boolean flag = false;
+//		user = new User("dd","dd");
+		flag = this.enterService.register(user);
+		return flag;
+	}
+	/**
+	 * 重置密码
+	 * @param user
+	 */
+	public void resetPwd(User user){
+		
+	}
 }

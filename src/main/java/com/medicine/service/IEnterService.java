@@ -15,4 +15,16 @@ public interface IEnterService {
 	 * @return
 	 */
 	public boolean checkLoginName(String lgName);
+	/**
+	 * 注册用户
+	 * @param user
+	 * @return
+	 */
+	public boolean register(User user);
+	/**
+	 * 重置密码
+	 * @param user
+	 * @return
+	 */
+	public boolean resetPwd(User user);
 }

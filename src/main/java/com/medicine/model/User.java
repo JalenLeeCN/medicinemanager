@@ -8,6 +8,7 @@ public class User {
 	private Integer id;//id pk
 	private String name;//用户名
 	private String password;//密码
+	private String email;//邮箱
 	
 	
 	public User() {
@@ -34,6 +35,12 @@ public class User {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 }
