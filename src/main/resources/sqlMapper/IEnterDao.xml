@@ -9,4 +9,7 @@
 		u.user_name = #{name} and
 		u.user_password = #{password}
 	</select>
+	<select id="checkLoginName" parameterType="java.lang.String" resultType="java.lang.String">
+		select user_name from t_users where user_name = #{lgName}
+	</select>
 </mapper>

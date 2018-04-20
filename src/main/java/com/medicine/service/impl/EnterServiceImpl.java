@@ -17,4 +17,12 @@ public class EnterServiceImpl implements IEnterService {
 		return enterDao.login(user);
 	}
 
+	public boolean checkLoginName(String lgName) {
+		boolean flag = false;
+		String daoflag = this.enterDao.checkLoginName(lgName);
+		if(daoflag!=null && !daoflag.equals(""))
+			flag = true;
+		return flag;
+	}
+
 }

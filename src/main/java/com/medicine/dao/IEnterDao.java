@@ -15,4 +15,10 @@ public interface IEnterDao {
 	 * @return
 	 */
 	public UserView login(User user);
+	/**
+	 * 检查用户名是否存在
+	 * @param lgName
+	 * @return
+	 */
+	public String checkLoginName(String lgName);
 }

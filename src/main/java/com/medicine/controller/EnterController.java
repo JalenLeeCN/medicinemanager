@@ -27,17 +27,22 @@ public class EnterController {
 	@RequestMapping("login")
 	@ResponseBody
 	public UserView login(User user){
-		User u = new User("aa","aa");
-		UserView uv = this.enterService.login(u);
-		System.out.println(uv.toString());
-//		if(uv.getName()==null)
-			
+		user = new User("aa","aa");
+		UserView uv = this.enterService.login(user);
 		return uv;
 	}
-	
+	/**
+	 * 检查用户名是否存在
+	 * @param lgName
+	 * @return
+	 */
+	@RequestMapping("check")
+	@ResponseBody
 	public boolean checkLoginName(String lgName){
+		lgName = "aa";
 		boolean flag = false;
-		
+		if(this.enterService.checkLoginName(lgName)==true)
+			flag = true;
 		return flag;
 	}
 }

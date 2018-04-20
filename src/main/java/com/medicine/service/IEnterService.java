@@ -9,4 +9,10 @@ public interface IEnterService {
 	 * @return
 	 */
 	public UserView login(User user);
+	/**
+	 * 检查用户名是否存在
+	 * @param lgName
+	 * @return
+	 */
+	public boolean checkLoginName(String lgName);
 }
