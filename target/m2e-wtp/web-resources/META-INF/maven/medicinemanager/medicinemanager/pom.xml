@@ -5,7 +5,7 @@
 	<artifactId>medicinemanager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	
+
 	<properties>
 		<!-- Spring版本号 -->
 		<spring.version>4.3.8.RELEASE</spring.version>
@@ -110,6 +110,16 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>1.7.21</version>
 		</dependency>
-
+		<!-- JMail相关 -->
+		<dependency>
+			<groupId>javax.mail </groupId>
+			<artifactId>mail </artifactId>
+			<version>1.4.5 </version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.mail </groupId>
+			<artifactId>javax.mail </artifactId>
+			<version>1.5.4 </version>
+		</dependency>
 	</dependencies>
 </project>
