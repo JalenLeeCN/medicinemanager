@@ -2,9 +2,14 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
-  <configuration>
-      <typeAliases>
-          <!-- 全路径别名 -->
-          <typeAlias type="com.medicine.dto.TestScope" alias="TestScope"/>
-      </typeAliases>
-  </configuration>
+<configuration>
+	<typeAliases>
+		<!-- 全路径别名 -->
+		<typeAlias type="com.medicine.dto.TestScope" alias="TestScope" />
+		<typeAlias type="com.medicine.vo.UserView" alias="UserView" />
+		<typeAlias type="com.medicine.model.User" alias="User" />
+	</typeAliases>
+<!-- 	<settings> -->
+<!-- 		<setting name="" value=""/> -->
+<!-- 	</settings> -->
+</configuration>
