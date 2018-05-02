@@ -11,22 +11,22 @@ import org.springframework.transaction.annotation.Transactional;
 import com.medicine.dao.IEnterDao;
 import com.medicine.model.User;
 import com.medicine.util.RandomPwdUtil;
-import com.medicine.vo.UserView;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("resources/config/spring.xml")
-@Transactional
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration("resources/config/spring.xml")
+//@Transactional
 public class TestEnter {
 	@Autowired
 	private IEnterDao enterDao;
-
+	private RandomPwdUtil randomPwdUtil;
 	@Before
 	public void testInitial() {
+		randomPwdUtil = new RandomPwdUtil();
 	}
 
 	@Test
 	public void testRandomPwd() {
-		String newPwd = RandomPwdUtil.rdmPwdProducer();
+		String newPwd = randomPwdUtil.rdmPwdProducer();
 		System.out.println(newPwd);
 	}
 	
