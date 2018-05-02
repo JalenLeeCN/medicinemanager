@@ -8,6 +8,7 @@ public class User {
 	private Integer id;//id pk
 	private String name;//用户名
 	private String password;//密码
+	private String verification;//验证码
 	private String email;//邮箱
 	
 	
@@ -17,6 +18,12 @@ public class User {
 		super();
 		this.name = name;
 		this.password = password;
+	}
+	public String getVerification() {
+		return verification;
+	}
+	public void setVerification(String verification) {
+		this.verification = verification;
 	}
 	public String getPassword() {
 		return password;

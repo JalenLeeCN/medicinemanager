@@ -4,8 +4,15 @@ import com.medicine.model.User;
 
 public class UserView extends User{
 	private Integer menuPerssion;//菜单权限
-	private Integer errState;//账密错误位
+	/** 0:failed 1:success */
+	private Integer loginstate;//登录成功与否
 	
+	public Integer getLoginstate() {
+		return loginstate;
+	}
+	public void setLoginstate(Integer loginstate) {
+		this.loginstate = loginstate;
+	}
 	public Integer getMenuPerssion() {
 		return menuPerssion;
 	}
@@ -13,12 +20,6 @@ public class UserView extends User{
 		this.menuPerssion = menuPerssion;
 	}
 	
-	public Integer getErrState() {
-		return errState;
-	}
-	public void setErrState(Integer errState) {
-		this.errState = errState;
-	}
 	@Override
 	public String toString() {
 		return "UserView [menuPerssion=" + menuPerssion + "]";

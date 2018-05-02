@@ -15,7 +15,8 @@ public class EnterServiceImpl implements IEnterService {
 	private IEnterDao enterDao;
 
 	public UserView login(User user) {
-		return enterDao.login(user);
+		UserView uv = enterDao.login(user);
+		return uv;
 	}
 
 	public boolean checkLoginName(String lgName) {

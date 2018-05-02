@@ -1,6 +1,5 @@
 $(function(){
 	$("#inputName").val(getCookie("loginName"));
-	console.log("账号cookie-->"+$("#inputName").val(getCookie("loginName")));
 	$(".container form").submit(function(e){
 		alert("login.js-->submit");
 		return login_form();
@@ -10,16 +9,16 @@ $(function(){
 function login_form(){
 	alert("login_form");
 	//获取表单中的用户名和密码
-	var name = $("#inputName").val();
-	alert("login_form-->name="+name);
-	var pwd = $("#inputPassword").val();
-	alert("login_form-->pwd="+pwd);
+	var lName = $("#inputName").val();
+//	alert("login_form-->lName="+lName);
+	var lPwd = $("#inputPassword").val();
+//	alert("login_form-->lPwd="+lPwd);
 	var remember = $(".container form input[type=checkbox]").get(0).checked;
 //	alert(lName+"  "+lPwd);
-	console.log(name+"  "+pwd);
+	console.log(lName+"  "+lPwd);
 	//断点跟踪
 	$.ajax({
-		url:basePath+"enter/login/"+name+"/"+pwd+"/0",
+		url:basePath+"user/login/"+lName+"/"+lPwd,
 		type:"get",//使用restful方式
 //		data:{"loginName":lName,"loginPwd":lPwd},
 		dataType:"json",
