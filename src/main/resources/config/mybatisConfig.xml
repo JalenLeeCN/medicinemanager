@@ -8,6 +8,7 @@
 		<typeAlias type="com.medicine.dto.TestScope" alias="TestScope" />
 		<typeAlias type="com.medicine.vo.UserView" alias="UserView" />
 		<typeAlias type="com.medicine.model.User" alias="User" />
+		<typeAlias type="com.medicine.model.Role" alias="Role" />
 	</typeAliases>
 <!-- 	<settings> -->
 <!-- 		<setting name="" value=""/> -->
