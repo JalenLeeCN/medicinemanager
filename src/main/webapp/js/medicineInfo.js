@@ -77,7 +77,7 @@ function showAllClass(){
 			}
 		},
 		error:function(){
-			alert("视频类型请求失败");
+//			alert("视频类型请求失败");
 		}
 	});
 }
@@ -145,11 +145,11 @@ function findVideo(currentPage){
 					$("#video_page li:eq("+page.currentPage+")").attr("class","active");
 				}
 			}else{
-				alert(result.message);
+//				alert(result.message);
 			}
 		},
 		error:function(){
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 }
@@ -164,11 +164,11 @@ function deleteVideo(dom,videoId){
 			if(result.status==0){
 				
 			}else{
-				alert(result.message);
+//				alert(result.message);
 			}
 		},
 		error:function(){
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 }

@@ -38,6 +38,9 @@ alter table t_users add column `user_verification` varchar(20);
 alter table t_users add column `user_email` varchar(50);
 # 修改邮箱列非空
 alter table t_users modify `user_email` varchar(50) not null;
+# id,用户名唯一
+alter table t_users add unique(`user_name`);
+alter table t_users add unique(`user_id`);
 #---------------------------------------------------------------------------- 
 # 创建角色表
 create table if not exists t_roles(
@@ -45,7 +48,11 @@ create table if not exists t_roles(
 	`role_name` varchar(10) not null
 );
 select * from t_roles;
-insert into t_roles(`role_name`) values('管理员');
+insert into t_roles(`role_name`) values('超级管理员');
+insert into t_roles(`role_name`) values('角色管理员');
+insert into t_roles(`role_name`) values('药品录入员');
+insert into t_roles(`role_name`) values('药品管理员');
+insert into t_roles(`role_name`) values('人员管理员');
 #---------------------------------------------------------------------------- 
 # 创建用户角色表
 create table if not exists t_user_role(
@@ -55,43 +62,51 @@ create table if not exists t_user_role(
 	foreign key(`role_id`) references t_roles(`role_id`)
 );
 commit;
+
+
 select * from t_user_role;
 insert into t_user_role values(1,1);
+insert into t_user_role values(2,2);
+insert into t_user_role values(3,3);
+insert into t_user_role values(4,4);
+insert into t_user_role values(5,5);
 #---------------------------------------------------------------------------- 
 # 创建药品信息表
 create table if not exists t_druginfo(
    `drug_id` int not null primary key auto_increment,# id pk
-	`drug_name` varchar(20) not null, #name 品名
-	`drug_manufacturer` varchar(20) not null , #制造商
-	`drug_provider` int not null,
-	foreign key(`drug_provider`) references t_providers(`prov_id`)
+	`dm_id` int not null , #制造商
+	`drug_provider` int not null, #供应商
+	`drug_specification` 
 );
 insert into t_druginfo(`drug_name`,`drug_manufacturer`,`drug_provider`)
     values('1药品名','1制造商',1);
     
 #----------------------------------------------------------------------------    
-# 供应商表
-create table if not exists t_providers(
-  `prov_id` int not null primary key auto_increment, # id pk
-  `prov_name` varchar(20) not null # 供应商名称
+# 第三方信息表
+create table if not exists t_thirdpartyinfo(
+  `thirdparty_id` int not null primary key auto_increment, # id pk
+  `thirdparty_name` varchar(20) not null # 供应商名称
+  
 );
 insert into t_providers(`prov_name`) values('供应商1');
 
 
 #---------------------------------------------------------------------------- 
 # 药品说明书表
+drop table t_drug_specification;
 create table if not exists t_drug_specification(
-    `drug_id` int not null, # fk t_druginfo drug_id
-    `drug_ingredient` varchar(20), # 组成成分   
+    `ds_id` int not null primary key auto_increment, # pk
+    `drug_id` int not null,# fk t_druginfo drug_id
+    `ds_
     foreign key(`drug_id`) references t_druginfo(`drug_id`)
 );
 
 #---------------------------------------------------------------------------- 
-# 药品主要成分表
-create table if not exists t_drug_main_ingredient(
-    `drug_id` int not null,
-    `drug_ingredient` varchar(10)
-    foreign key(`drug_id`) references t_druginfo(`drug_id`)
+# 药品成分表
+create table if not exists t_drug_ingredient(
+    `di_id` int not null primary key auto_increment, # pk
+    `ds_id` int not null,# fk t_drug_specification `ds_id`
+    `di_ingredient` varchar(20)
 );
 
 #-----------------------------------------------------------------------------

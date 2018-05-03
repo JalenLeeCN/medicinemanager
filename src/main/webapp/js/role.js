@@ -47,7 +47,7 @@ function updateRole(roleId,dom){
 			}
 		},
 		error:function(){
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 	findRoles(1);
@@ -93,7 +93,7 @@ function deleteRole(roleId,dom){
 			}
 		},
 		error:function(){
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 	//关闭当前删除的确认modal框
@@ -123,7 +123,7 @@ function addRole(){
 			}
 		},
 		error:function(){
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 //	console.log("show tab");
@@ -207,7 +207,7 @@ function findRoles(currentPage){
 			}
 		},
 		error:function(){
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 }///func

@@ -30,14 +30,14 @@ function addCourse(){
 		dataType:"json",
 		success:function(result){
 			if(result.status==0){
-				alert(result.message);
+//				alert(result.message);
 				findCourses(1);
 			}else if(result.status==1){
-				alert(result.message);
+//				alert(result.message);
 			}
 		},
 		error:function(){
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 	$("#course_tab a [#href='#course']").tab("show");
@@ -60,15 +60,15 @@ function deleteCourse(courseId,dom){
 		dataType:"json",
 		success:function(result){
 			if(result.status==0){
-				alert(result.message);
+//				alert(result.message);
 				//移除当前tr
 				dom.remove();
 			}else if(result.status==1){
-				alert(result.message);
+//				alert(result.message);
 			}
 		},
 		error:function(){
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 	//关闭当前删除的确认modal框
@@ -143,11 +143,11 @@ function findCourses(currentPage){
 					$("#course_page li:eq("+page.currentPage+")").attr("class","active");
 				}
 			}else if(result.status==1){
-				alert(result.message);
+//				alert(result.message);
 			}
 		},
 		error:function(){
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 }

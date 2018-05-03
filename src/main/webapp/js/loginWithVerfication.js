@@ -7,7 +7,7 @@ $(function(){
 });
 //登录方法
 function login_form(){
-	alert("login_form");
+//	alert("login_form");
 	//获取表单中的用户名和密码
 	var lName = $("#inputName").val();
 //	alert("login_form-->lName="+lName);
@@ -30,11 +30,11 @@ function login_form(){
 					addCookie("loginName",lName,1);
 				}
 			}else if(result.status==1){
-				alert(result.message);
+//				alert(result.message);
 			}
 		},
 		error:function(){
-			alert("请求失败!");
+//			alert("请求失败!");
 		}
 	});
 	return false;

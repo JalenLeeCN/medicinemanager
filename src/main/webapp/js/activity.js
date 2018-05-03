@@ -14,7 +14,6 @@ $(function(){
 	});
     //给模糊查询添加click事件
 	$("#act_search_button").click(function(){
-//		alert("模糊查询")
 		return findAct(1);
 	});
 /*	//给详情的页签添加click事件 不通过详情超链接跳转就刷空页面
@@ -32,13 +31,9 @@ function emptyDetailPanel(){
 }
 //显示活动
 function findAct(currentPage){
-//	alert("findAct()");
 	var actKeyWord = $("#act_search").val();
-//	alert(actKeyWord);
-//	alert("actKeyWord"+actKeyWord);
 	$("#actPanel table tbody").html("");
 	$("#act_page").html("");
-//	alert("=======")
 	if(actKeyWord==""){
 		actKeyWord = "undefined";
 	}
@@ -49,7 +44,6 @@ function findAct(currentPage){
 		dataType:"json",
 		success:function(result){
 			if(result.status==0){
-//				alert(result.status);
 				$("#actPanel table tbody").html("");
 				$("#act_page").html("");
 				var page = result.data;
@@ -101,7 +95,7 @@ function findAct(currentPage){
 			}
 		},
 		error:function(){
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 }
@@ -115,7 +109,6 @@ function timeToDate(time){
 	var y = date.getFullYear();
 	var m = date.getMonth()+1;
 	var d = date.getDate();
-//	alert("-->"+y+"-"+m+"-"+d)
 	//补充成为标准格式
 	return y+"-"+add0(m)+"-"+add0(d);
 //	return y+"-"+m+"-"+d;
@@ -161,7 +154,7 @@ function detailActClick(id){
 			}
 		},
 		error:function(){
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 }
@@ -172,13 +165,11 @@ function updateActClick(id){
 }
 //点击新增刷新出课程下拉列表
 function showCourseSelect(){
-//	alert("shoeCourseSelect");
 	$.ajax({
 		url:basePath+"ShowCourseSelectServlet",
 		type:"post",
 		dataType:"json",
 		success:function(result){
-//			alert("showCourseSelect success");
 			$("#add_courseId").html("");
 			if(result.status==0){
 				var courseNames = result.data;
@@ -191,7 +182,7 @@ function showCourseSelect(){
 			}
 		},
 		error:function(){
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 }
@@ -233,7 +224,7 @@ function addAct(){
 			}
 		},
 		error:function(){
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 	$("#active_tab a[href='#actPanel']").tab("show");
@@ -241,7 +232,6 @@ function addAct(){
 }
 //检查用户名是否存在 且带回id值设置为其value
 function checkUserName(){
-//	alert("checkUserName");
 	var InitiatorName = $("#add_initiator").val();
 	$.ajax({
 		url:basePath+"CheckUserLoginNameServlet",
@@ -250,7 +240,6 @@ function checkUserName(){
 		dataType:"json",
 		async:false,
 		success:function(result){
-//			alert("checkUserName success");
 			if(result.status==1){//等于1说明用户名存在
 				var user = result.data;
 				userId = user.id;
@@ -260,7 +249,7 @@ function checkUserName(){
 			}
 		},
 		error:function(){
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 	return userId;
@@ -268,7 +257,6 @@ function checkUserName(){
 /*//新增活动 选择发起人 通过名字找id
 function selectUser(){
 	var name = $("#add_initiator").val();
-	alert("selectUser()");
 	var userId = "";
 	$.ajax({
 		url:basePath+"SelectActUserServlet",
@@ -277,7 +265,6 @@ function selectUser(){
 		dataType:"json",
 		success:function(result){
 			var id= result.data;
-			alert("userId="+id);
 			if(result.status==0){
 				userId = id;
 			}else{
@@ -329,7 +316,7 @@ function uploadPicutre(fileId){
 			}
 		},
 		error:function(){
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 }
@@ -353,7 +340,7 @@ function deleteAct(actId,dom){
 			}
 		},
 		error:function(){
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 	$("#deleteAct_modal").modal("toggle");

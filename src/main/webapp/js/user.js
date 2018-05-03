@@ -100,7 +100,7 @@ function updateUser(){
 			$("#editUser").modal("hide");
 		},
 		error : function() {
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 	return false;
@@ -153,7 +153,7 @@ function updateUserClick(id,loginName,password,nickName,age,sex,roleString,head)
 			}
 		},
 		error : function() {
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 }
@@ -180,7 +180,7 @@ function findAllRoleName(loc) {
 			}
 		},
 		error : function() {
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 }
@@ -222,7 +222,7 @@ function addUser(){
 			alert(data);
 		},
 		error:function(){
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 	return false;
@@ -245,7 +245,7 @@ function deleteUser() {
 			}
 		},
 		error : function() {
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 
@@ -292,7 +292,7 @@ function findUserById(id){
 			}
 		},
 		error : function() {
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 }
@@ -373,7 +373,7 @@ function findUsers(currentPage){
 			}
 		},
 		error:function(){
-			alert("请求失败");
+//			alert("请求失败");
 		}
 	});
 }

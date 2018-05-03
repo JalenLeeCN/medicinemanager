@@ -7,9 +7,7 @@
 	<select id="login" parameterType="User" resultType="UserView">
 		select
 		user_id as id,
-		user_name as name,
-		user_password as password,
-		user_verification as verification
+		user_name as name
 		from t_users u where
 		u.user_name = #{name}
 		<if test="password != null">
