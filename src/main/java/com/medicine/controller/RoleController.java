@@ -1,6 +1,7 @@
 package com.medicine.controller;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -8,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.medicine.model.Role;
 import com.medicine.service.IRoleService;
 
 @Controller
@@ -16,10 +16,16 @@ import com.medicine.service.IRoleService;
 public class RoleController {
 	@Resource(name="roleService")
 	private IRoleService roleService;
-	
+	/**
+	 * 查询角色信息
+	 * @return
+	 */
 	@RequestMapping("/queryRole")
 	@ResponseBody
-	public List<Role> queryRole(){
-		return this.roleService.queryRole();
+	public Map queryRole(){
+		Map map = new HashMap();
+		this.roleService.queryRole();
+		return map;
+				
 	}
 }

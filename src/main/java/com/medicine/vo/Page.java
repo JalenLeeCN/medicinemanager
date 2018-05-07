@@ -1,11 +1,15 @@
 package com.medicine.vo;
 
+import java.util.Map;
+
 public class Page {
 	private int currentPage;//当前页数
 	private int totalPage;//总页数
 	private int pageSize;//每页记录数
 	private int previousPage;//前一页
 	private int nextPage;//后一页
+	
+	protected Map result;//存放分页后的数据
 	
 	
 	public int getPreviousPage() {
@@ -37,6 +41,12 @@ public class Page {
 	}
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
+	}
+	public Map getResult() {
+		return result;
+	}
+	public void setResult(Map result) {
+		this.result = result;
 	}
 	
 	
