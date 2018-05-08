@@ -1,6 +1,9 @@
 package com.medicine.vo;
 
+import java.util.List;
 import java.util.Map;
+
+import org.apache.poi.ss.formula.functions.T;
 
 public class Page {
 	private int currentPage;//当前页数
@@ -9,8 +12,9 @@ public class Page {
 	private int previousPage;//前一页
 	private int nextPage;//后一页
 	
-	protected Map result;//存放分页后的数据
+	private List<Integer> pagingHref;//页面上显示的超链接数
 	
+	protected List result;//存放分页后的数据
 	
 	public int getPreviousPage() {
 		return previousPage;
@@ -42,12 +46,17 @@ public class Page {
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
 	}
-	public Map getResult() {
+	public List<Integer> getPagingHref() {
+		return pagingHref;
+	}
+	public void setPagingHref(List<Integer> pagingHref) {
+		this.pagingHref = pagingHref;
+	}
+	public List getResult() {
 		return result;
 	}
-	public void setResult(Map result) {
+	public void setResult(List result) {
 		this.result = result;
 	}
-	
 	
 }

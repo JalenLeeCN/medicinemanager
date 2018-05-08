@@ -15,7 +15,12 @@ public class RoleServiceImpl implements IRoleService {
 	private IRoleDao roleDao;
 
 	@Override
-	public List<Role> queryRole() {
-		return this.roleDao.queryRole();
+	public List<Role> queryRole(int currentPage, String keyWord) {
+		return this.roleDao.queryRole(currentPage,keyWord);
+	}
+
+	@Override
+	public Integer queryRoleCount(int currentPage, String keyWord) {
+		return this.roleDao.queryRoleCount(currentPage,keyWord);
 	}
 }

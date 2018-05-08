@@ -10,7 +10,16 @@ import com.medicine.model.Role;
 public interface IRoleDao {
 	/**
 	 * 查询角色信息
+	 * @param currentPage
+	 * @param keyWord
 	 * @return
 	 */
-	public List<Role> queryRole();
+	public List<Role> queryRole(Integer currentPage,String keyWord);
+	/**
+	 * 查询角色数量
+	 * @param currentPage
+	 * @param keyWord
+	 * @return
+	 */
+	public Integer queryRoleCount(Integer currentPage,String keyWord);
 }

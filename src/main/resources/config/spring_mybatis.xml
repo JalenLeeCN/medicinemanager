@@ -82,7 +82,7 @@
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="alibabaDataSource"></property>
 	</bean>
-
+	
 	<!-- 扫描事务有关的注解 -->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 
