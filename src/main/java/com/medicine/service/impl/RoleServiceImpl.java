@@ -7,10 +7,11 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.medicine.dao.IRoleDao;
+import com.medicine.model.Page;
 import com.medicine.model.Role;
 import com.medicine.service.IRoleService;
 import com.medicine.util.PagingUtil;
-import com.medicine.vo.Page;
+import com.medicine.vo.PageView;
 @Service("roleService")
 public class RoleServiceImpl implements IRoleService {
 	@Resource(name="roleDao")
@@ -19,17 +20,26 @@ public class RoleServiceImpl implements IRoleService {
 	private PagingUtil pagingUtil;
 
 	@Override
-	public Page queryRole(int currentPage, String keyWord) {
-		Page page = new Page();
-		page.setTotalPage(queryRoleCount(currentPage, keyWord));
-		List<Role> roles = this.roleDao.queryRole(currentPage,keyWord); 
-		page.setResult(roles);
-		page.setPagingHref(pagingUtil.getPagingHref(currentPage,page.getTotalPage()));
-		return page;
+	public PageView queryRole(Page page) {
+		page.setPageSize(pagingUtil.getPageSize());
+		List<Role> roles = this.roleDao.queryRole(page);
+		PageView pv = this.pagingUtil.pageBuilder(page, queryRoleCount(page), roles);
+		return pv;
 	}
 
 	@Override
-	public Integer queryRoleCount(int currentPage, String keyWord) {
-		return this.roleDao.queryRoleCount(currentPage,keyWord);
+	public Integer queryRoleCount(Page page) {
+		return this.roleDao.queryRoleCount(page);
+	}
+	
+	@Override
+	public boolean addRole(String roleName) {
+		boolean flag = false;
+		try {
+			flag = this.roleDao.addRole(roleName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return flag;
 	}
 }

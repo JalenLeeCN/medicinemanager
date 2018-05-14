@@ -9,6 +9,8 @@
 		<typeAlias type="com.medicine.vo.UserView" alias="UserView" />
 		<typeAlias type="com.medicine.model.User" alias="User" />
 		<typeAlias type="com.medicine.model.Role" alias="Role" />
+		<typeAlias type="com.medicine.model.Page" alias="Page"/>
+		<typeAlias type="com.medicine.vo.PageView" alias="PageView"/>
 	</typeAliases>
 <!-- 	<settings> -->
 <!-- 		<setting name="" value=""/> -->

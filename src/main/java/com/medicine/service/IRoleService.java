@@ -1,15 +1,25 @@
 package com.medicine.service;
 
-import com.medicine.vo.Page;
+import com.medicine.model.Page;
+import com.medicine.vo.PageView;
 
 public interface IRoleService {
-	
-	public Page queryRole(int currentPage,String keyWord);
 	/**
-	 * 查询角色总数
-	 * @param currentPage
-	 * @param keyWord
+	 * 查询角色信息
+	 * @param page
 	 * @return
 	 */
-	public Integer queryRoleCount(int currentPage,String keyWord);
+	public PageView queryRole(Page page);
+	/**
+	 * 查询角色总数
+	 * @param page
+	 * @return
+	 */
+	public Integer queryRoleCount(Page page);
+	/**
+	 * 添加角色
+	 * @param roleName
+	 * @return
+	 */
+	public boolean addRole(String roleName);
 }

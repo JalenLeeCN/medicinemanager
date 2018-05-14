@@ -20,5 +20,6 @@
         
         <!-- spring框架用于管理对象  此处配置为扫描包方式创建管理对象-->
         <context:component-scan base-package="com.medicine.service"></context:component-scan>
+        <context:component-scan base-package="com.medicine.util"></context:component-scan>
         
 </beans>

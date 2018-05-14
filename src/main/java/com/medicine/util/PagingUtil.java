@@ -6,6 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import com.medicine.model.Page;
+import com.medicine.model.Role;
+import com.medicine.vo.PageView;
+
 @Component("pagingUtil")
 public class PagingUtil {
 	/** 每页展示数据条数 */
@@ -23,13 +27,13 @@ public class PagingUtil {
 	 * @return 当前显示的超链接中的数字集合
 	 */
 	public List<Integer> getPagingHref(int currentPage, int totalCount) {
-		if (totalCount * pageSize * currentPage == 0) {
-			throw new IllegalArgumentException("请检查数据或配置文件中的参数");
+		if (pageSize * hrefNum == 0) {
+			throw new IllegalArgumentException("请检查配置文件中的参数");
 		}
 		List<Integer> pagingHref = new ArrayList<>();
 		Integer totalPage = (totalCount % pageSize) == 0 ? (totalCount / pageSize) : (totalCount / pageSize) + 1;
 		if (totalPage <= hrefNum) {// 总页面数 <= 需要显示的超链接数
-			for (int i = 1; i < totalPage; i++)
+			for (int i = 1; i <= totalPage; i++)
 				pagingHref.add(i);
 		} else { // 总页面数>超链接数
 			if (currentPage <= hrefNum / 2) {// 当前页<=(链接数/2)  顶到头的情况
@@ -50,6 +54,29 @@ public class PagingUtil {
 			}
 		}
 		return pagingHref;
+	}
+	
+	/**
+	 * 
+	 * 根据前台发送的Page,在后台查询计算,并组装为PageView
+	 * @param page 页面通用信息
+	 * @param count 具体页面所查询结果集总数
+	 * @param result 具体页面所查询的结果集
+	 * @return 前台展示结果集
+	 */
+	public PageView pageBuilder(Page page,Integer count,List result){
+		PageView pv = new PageView();
+		//处理前端传的keyword
+		if(page.getKeyWord()==null||page.getKeyWord().equals("undefined"))
+			page.setKeyWord("");
+		
+		Integer totalPage = (count % pageSize) == 0 ? (count / pageSize) : (count / pageSize) + 1;
+		
+		pv.setTotalPage(totalPage);
+		pv.setResult(result);
+		pv.setPagingHref(getPagingHref(page.getCurrentPage(),count));
+		
+		return pv;
 	}
 	
 	

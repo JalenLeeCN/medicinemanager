@@ -3,13 +3,14 @@ package com.medicine.controller;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.medicine.model.Page;
 import com.medicine.service.IRoleService;
 import com.medicine.util.PagingUtil;
-import com.medicine.vo.Page;
+import com.medicine.vo.PageView;
 
 @Controller
 @RequestMapping("role")
@@ -20,15 +21,24 @@ public class RoleController {
 	private PagingUtil pagingUtil;
 	/**
 	 * 查询角色信息
-	 * @param currentPage
-	 * @param keyWord
+	 * @param page
 	 * @return
 	 */
-	@RequestMapping("/queryRole/{currentPage}/{keyWord}")
+	@RequestMapping(value="/queryRole/{currentPage}/{keyWord}",method=RequestMethod.GET)
 	@ResponseBody
-	public Page queryRole(@PathVariable("currentPage") int currentPage,
-						  @PathVariable("keyWord") String keyWord){
-		Page page = this.roleService.queryRole(currentPage,keyWord);
-		return page;
+	public PageView queryRole(Page page){
+		PageView pv = this.roleService.queryRole(page);
+		return pv;
 	}
+	/**
+	 * 增加角色
+	 * @param roleName
+	 * @return
+	 */
+	@RequestMapping(value="/addtion",method=RequestMethod.POST)
+	@ResponseBody
+	public boolean addRole(String roleName){
+		return this.roleService.addRole(roleName);
+	}
+	
 }

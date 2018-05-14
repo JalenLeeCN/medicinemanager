@@ -1,10 +1,10 @@
-package com.medicine.vo;
+package com.medicine.model;
 
-import java.util.List;
-import java.util.Map;
-
-import org.apache.poi.ss.formula.functions.T;
-
+/**
+ * 前台传入的页面信息
+ * @author Administrator
+ *
+ */
 public class Page {
 	private int currentPage;//当前页数
 	private int totalPage;//总页数
@@ -12,9 +12,9 @@ public class Page {
 	private int previousPage;//前一页
 	private int nextPage;//后一页
 	
-	private List<Integer> pagingHref;//页面上显示的超链接数
+	private int offset;//分页查询偏移量
 	
-	protected List result;//存放分页后的数据
+	private String keyWord;//关键字
 	
 	public int getPreviousPage() {
 		return previousPage;
@@ -46,17 +46,22 @@ public class Page {
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
 	}
-	public List<Integer> getPagingHref() {
-		return pagingHref;
+	public String getKeyWord() {
+		return keyWord;
 	}
-	public void setPagingHref(List<Integer> pagingHref) {
-		this.pagingHref = pagingHref;
+	public void setKeyWord(String keyWord) {
+		this.keyWord = keyWord;
 	}
-	public List getResult() {
-		return result;
+	/**
+	 * 处理数据库中查询的分页条件 
+	 * @return
+	 */
+	public int getOffset() {
+		offset = (currentPage - 1)*pageSize;
+		return offset;
 	}
-	public void setResult(List result) {
-		this.result = result;
+	public void setOffset(int offset) {
+		this.offset = offset;
 	}
 	
 }
