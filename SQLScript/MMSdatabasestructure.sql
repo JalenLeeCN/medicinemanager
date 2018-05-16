@@ -2,6 +2,8 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
+CREATE SCHEMA IF NOT EXISTS `medicine` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `medicine` ;
 
 -- -----------------------------------------------------
 -- Table `medicine`.`users`
@@ -44,7 +46,8 @@ CREATE TABLE IF NOT EXISTS `medicine`.`manufacturer` (
   `fax_no` VARCHAR(45) NULL COMMENT '传真号码',
   `register_address` VARCHAR(45) NULL COMMENT '药品生产许可证注册地址',
   `website` VARCHAR(45) NULL COMMENT '网址',
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB
 COMMENT = '制造商';
 
@@ -151,7 +154,7 @@ COMMENT = '药品说明书';
 -- Table `medicine`.`user_role`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `medicine`.`user_role` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `users_id` INT NOT NULL,
   `roles_id` INT NOT NULL,
   INDEX `fk_user_role_users1_idx` (`users_id` ASC),
@@ -189,7 +192,7 @@ COMMENT = '客户信息';
 -- Table `medicine`.`expense_calender`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `medicine`.`expense_calender` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `consumption_date` DATE NULL COMMENT '消费时间',
   `discount_price` DECIMAL(2,2) NULL COMMENT '折扣率',
   `drug_info_id` INT NOT NULL,
@@ -197,6 +200,7 @@ CREATE TABLE IF NOT EXISTS `medicine`.`expense_calender` (
   PRIMARY KEY (`id`),
   INDEX `fk_expense_calender_drug_info1_idx` (`drug_info_id` ASC),
   INDEX `fk_expense_calender_customer1_idx` (`customer_id` ASC),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   CONSTRAINT `fk_expense_calender_drug_info1`
     FOREIGN KEY (`drug_info_id`)
     REFERENCES `medicine`.`drug_info` (`id`)
