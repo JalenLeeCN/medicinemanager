@@ -11,7 +11,7 @@ $(function(){
 		return deleteVideo(dom,videoId);
 	});
 	//显示第一页数据
-	findVideo(1);
+	querySimpleInfo(1);
 });
 //刷空详情页
 function emptyVideoDesc(){
@@ -82,9 +82,9 @@ function showAllClass(){
 	});
 }
 //显示数据
-function findVideo(currentPage){
+function querySimpleInfo(currentPage){
 //	alert($("#video_search").val());
-	var videoKeyWord = $("#video_search").val();
+	var drugKeyWord = $("#video_search").val();
 	if(videoKeyWord==""){
 		videoKeyWord = "undefined";
 	}

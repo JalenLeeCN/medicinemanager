@@ -194,7 +194,7 @@ COMMENT = '客户信息';
 CREATE TABLE IF NOT EXISTS `medicine`.`expense_calender` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `consumption_date` DATE NULL COMMENT '消费时间',
-  `discount_price` DECIMAL(2,2) NULL COMMENT '折扣率',
+  `discount_price` DECIMAL(10,2) NULL COMMENT '折扣率',
   `drug_info_id` INT NOT NULL,
   `customer_id` INT NOT NULL,
   PRIMARY KEY (`id`),

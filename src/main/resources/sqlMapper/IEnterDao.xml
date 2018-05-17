@@ -6,23 +6,23 @@
 	<!-- 登录 -->
 	<select id="login" parameterType="User" resultType="UserView">
 		select
-		user_id as id,
-		user_name as name
-		from t_users u where
-		u.user_name = #{name}
+		id ,
+		name
+		from users u where
+		u.name = #{name}
 		<if test="password != null">
-			and u.user_password = #{password}
+			and u.password = #{password}
 		</if>
 		<if test="verification != null">
-			and u.user_verification = #{verification}
+			and u.verification = #{verification}
 		</if>
 	</select>
 	<select id="checkLoginName" parameterType="java.lang.String"
 		resultType="java.lang.String">
-		select user_name from t_users where user_name = #{lgName}
+		select name from users where name = #{lgName}
 	</select>
 	<insert id="register" parameterType="User">
 		insert into
-		t_users(user_name,user_password,user_email) values(#{name},#{password},#{email})
+		users(name,password,email) values(#{name},#{password},#{email})
 	</insert>
 </mapper>

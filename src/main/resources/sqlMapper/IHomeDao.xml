@@ -5,11 +5,11 @@
 <mapper namespace="com.medicine.dao.IHomeDao">
 	<!-- 人员统计环图-->
 	<select id="userStatistics" resultType="java.util.HashMap">
-		SELECT r.role_name as
-			"label", COUNT(ur.user_id) as "value"
-		FROM t_roles r
-			JOIN t_user_role ur
-				ON r.role_id = ur.role_id
-			GROUP BY role_name;
+		SELECT r.name as
+			"label", COUNT(ur.id) as "value"
+		FROM roles r
+			JOIN user_role ur
+				ON r.id = ur.id
+			GROUP BY r.name;
 	</select>
 </mapper>

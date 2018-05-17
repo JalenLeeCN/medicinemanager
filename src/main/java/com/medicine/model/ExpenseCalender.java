@@ -3,6 +3,7 @@ package com.medicine.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+
 public class ExpenseCalender implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int id;
@@ -10,7 +11,7 @@ public class ExpenseCalender implements Serializable {
 	private BigDecimal discountPrice;
 	private Customer customer;
 	private DrugInfo drugInfo;
-
+	
 	public ExpenseCalender() {
 	}
 

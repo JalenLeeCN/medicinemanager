@@ -3,6 +3,7 @@ package com.medicine.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
+
 public class DrugInfo implements Serializable {
 	private static final long serialVersionUID = 1L;
 

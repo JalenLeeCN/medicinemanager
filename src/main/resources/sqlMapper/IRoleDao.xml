@@ -5,19 +5,19 @@
 <mapper namespace="com.medicine.dao.IRoleDao">
 	<!-- 角色信息 -->
 	<select id="queryRole" parameterType="Page" resultType="Role">
-		select r.role_id as "id",r.role_name as "name" from t_roles r limit
+		select r.id,r.name from roles r order by r.id limit 
 		#{offset},#{pageSize}
 	</select>
 	<!-- 角色数量 -->
 	<select id="queryRoleCount" parameterType="Page" resultType="java.lang.Integer">
-		select count(role_id) from t_roles
+		select count(id) from roles
 	</select>
 	<!-- 添加角色 -->
 	<insert id="addRole" parameterType="java.lang.String">
-		insert into t_roles(role_name) values(#{roleName});
+		insert into roles(name) values(#{roleName});
 	</insert>
 	<!-- 编辑用户 -->
 	<update id="updateRole" parameterType="Role">
-		update t_roles set role_name = #{name} where role_id = #{id}
+		update roles set name = #{name} where id = #{id}
 	</update>
 </mapper>
