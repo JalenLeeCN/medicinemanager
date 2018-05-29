@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-  <display-name>MMS</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
-  
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>MMS</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
 	<!-- spring容器初始化的监听器，会读取全局初始化的数据（xml文件） -->
 	<listener>
 		<!-- listener中的最先开始 spring必须在spring mvc之前初始化， spring容器一定是先存在，后面初始化的对象才能放到容器里 -->
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener> 
-	
+	</listener>
+
 	<!-- spring mvc的入口 加载spring mvc的前端控制器 restful -->
 	<!-- restful模式，必须注意在springmvc.xml中配置，刨除静态资源 -->
 	<servlet>
@@ -31,7 +34,7 @@
 		<servlet-name>dispatcher_restful</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+
 	<!-- 全局初始化数据，用于spring的监听器读取此配置文件 多个配置文件用分号分隔 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>

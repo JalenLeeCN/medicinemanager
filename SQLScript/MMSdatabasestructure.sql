@@ -22,15 +22,34 @@ COMMENT = '用户表 存储用户信息';
 
 
 -- -----------------------------------------------------
+-- Table `medicine`.`role_menu`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `medicine`.`role_menu` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `menuno` VARCHAR(45) NULL COMMENT '菜单编号',
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
+ENGINE = InnoDB
+COMMENT = '角色对应的菜单';
+
+
+-- -----------------------------------------------------
 -- Table `medicine`.`roles`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `medicine`.`roles` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `menu_permission` VARCHAR(45) NULL,
+  `role_menu_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `role_id_UNIQUE` (`id` ASC),
-  UNIQUE INDEX `role_name_UNIQUE` (`name` ASC))
+  UNIQUE INDEX `role_name_UNIQUE` (`name` ASC),
+  INDEX `fk_roles_role_menu1_idx` (`role_menu_id` ASC),
+  CONSTRAINT `fk_roles_role_menu1`
+    FOREIGN KEY (`role_menu_id`)
+    REFERENCES `medicine`.`role_menu` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -77,8 +96,9 @@ CREATE TABLE IF NOT EXISTS `medicine`.`drug_info` (
   `unit_price` DECIMAL(10,3) NOT NULL,
   `manufacturer_id` INT NOT NULL,
   `providers_id` INT NOT NULL,
-  `quantity` VARCHAR(45) NULL COMMENT '某类药品基本数量',
+  `quantity` VARCHAR(45) NULL COMMENT '某类药品数量',
   `smalllest_unit` VARCHAR(45) NULL COMMENT '药品规格的最小单位',
+  `scale` INT NULL COMMENT '最小单位和规格之间的关系',
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `fk_drug_info_manufacturer1_idx` (`manufacturer_id` ASC),

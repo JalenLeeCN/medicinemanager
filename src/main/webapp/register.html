@@ -7,7 +7,7 @@
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <meta name="author" content="Robin Liu">
 
-    <title>登录</title>
+    <title>注册</title>
 
     <link rel="icon" href="favicon.ico">
     <!-- Bootstrap core CSS -->
@@ -39,18 +39,16 @@
     </nav>
     <div class="container">
       <form class="form-signin" method="post">
-        <h2 class="form-signin-heading">请登录</h2>
+        <h2 class="form-signin-heading">请注册</h2>
         <label for="inputName" class="sr-only">账号</label>
         <input type="text" id="inputName" class="form-control" placeholder="账号" required autofocus>
+        <label for="inputEmail" class="sr-only">邮箱</label>
+        <input type="text" id="inputEmail" class="form-control" placeholder="邮箱" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="密码" required>
-        <div class="checkbox">
-          <label style="float:left"><input type="checkbox" value="记住账号"> 记住账号 </label>
-          <label style="float:right">忘记密码?<a href="loginWithVerification.html">验证码登录</a></label>
-        </div>
 <!--      btn-block    class="" -->
-        <button class="btn btn-lg btn-primary btn-block btn btn-info" type="submit">登录</button>
-        <button class="btn btn-lg btn-primary btn-block btn btn-success" onclick="window.open('register.html')" type="">注册</button>
+        <button class="btn btn-lg btn-primary btn-block btn btn-info" onclick="window.open('login.html')">返回登录</button>
+        <button class="btn btn-lg btn-primary btn-block btn btn-success" type="submit">注册</button>
       </form>
     </div> <!-- /container -->
   </body>
