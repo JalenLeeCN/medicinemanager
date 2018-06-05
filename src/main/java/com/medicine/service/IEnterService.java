@@ -1,5 +1,7 @@
 package com.medicine.service;
 
+import javax.mail.MessagingException;
+
 import com.medicine.model.User;
 import com.medicine.vo.UserView;
 
@@ -27,4 +29,17 @@ public interface IEnterService {
 	 * @return
 	 */
 	public boolean resetPwd(User user);
+	/**
+	 * 修改数据库验证码
+	 * @param user
+	 */
+	public void alterVerificationCode(User user);
+	/**
+	 * 发送邮件验证码
+	 * @param vcode
+	 * @throws MessagingException 
+	 * @throws NumberFormatException 
+	 */
+	public void sendEmial(String vcode) throws NumberFormatException, MessagingException;
+	
 }

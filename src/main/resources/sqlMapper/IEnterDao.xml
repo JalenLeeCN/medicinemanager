@@ -25,4 +25,13 @@
 		insert into
 		users(name,password,email) values(#{name},#{password},#{email})
 	</insert>
+	
+	<!-- 修改验证码 -->
+	<update id="alterVerificationCode" parameterType="User">
+		update users 
+		set 
+    		verification = #{verification}
+		where
+    		name = #{name}
+	</update>
 </mapper>

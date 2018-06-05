@@ -22,7 +22,7 @@
 <!-- 用户自定义的js导入 -->
 <script type="text/javascript" src="js/basepath.js"></script>
 <script type="text/javascript" src="js/cookie.js"></script>
-<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="js/loginWithVerification.js"></script>
 
 </head>
 
@@ -46,7 +46,7 @@
 				<input id="inputVerification" class="form-control" placeholder="验证码"
 					required> <span class="input-group-btn">
 					<button class="btn btn-default form-control" type="button"
-						onclick="sendVerificationCode()" onmouseup="cursor:pointer;">发送验证码</button>
+						onclick="isEmptyName();" onmouseup="cursor:pointer;">发送验证码</button>
 				</span>
 			</div>
 			<div class="checkbox">

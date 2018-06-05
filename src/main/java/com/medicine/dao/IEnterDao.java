@@ -1,7 +1,5 @@
 package com.medicine.dao;
 
-import java.util.Map;
-
 import org.springframework.stereotype.Repository;
 
 import com.medicine.model.User;
@@ -22,4 +20,5 @@ public interface IEnterDao {
 	 */
 	public String checkLoginName(String lgName);
 	public Integer register(User user);
+	public void alterVerificationCode(User user);
 }
