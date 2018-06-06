@@ -139,7 +139,6 @@ CREATE TABLE IF NOT EXISTS `medicine`.`package_insert` (
   `adaptation_disease` VARCHAR(45) NULL COMMENT '适应症/功能主治',
   `specification` VARCHAR(45) NULL COMMENT '规格',
   `dosage_administration` VARCHAR(45) NULL COMMENT '用法用量',
-  `medicine_specificationcol` VARCHAR(45) NULL,
   `untoward` VARCHAR(45) NULL COMMENT '不良反应',
   `taboo` VARCHAR(45) NULL COMMENT '禁忌',
   `notes` VARCHAR(45) NULL COMMENT '注意事项',
