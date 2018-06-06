@@ -13,7 +13,7 @@ import com.medicine.service.IHomeService;
 public class HomeServiceImpl implements IHomeService {
 	@Resource(name="homeDao")
 	private IHomeDao homeDao;
-	public List<Map> userStatistics(){
-		return this.homeDao.userStatistics();
+	public List<Map> roleStatistics(){
+		return this.homeDao.roleStatistics();
 	}
 }

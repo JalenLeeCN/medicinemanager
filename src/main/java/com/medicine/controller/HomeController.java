@@ -17,9 +17,9 @@ public class HomeController {
 	@Resource(name="homeService")
 	private IHomeService homeService;
 	
-	@RequestMapping("/userStatistics")
+	@RequestMapping("/roleStatistics")
 	@ResponseBody
-	public List<Map>userStatistics(){
-		return this.homeService.userStatistics();
+	public List<Map> roleStatistics(){
+		return this.homeService.roleStatistics();
 	}
 }

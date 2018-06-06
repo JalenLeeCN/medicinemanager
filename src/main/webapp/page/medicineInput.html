@@ -1,29 +1,29 @@
 <div role="tabpanel">
 	<!-- 页签导航 -->
 	<ul class="nav nav-tabs " role="tablist">
-		<li role="presentation" class="active"><a href="#addCoursePanel"
-			aria-controls="course" role="tab" data-toggle="tab">药品录入</a></li>
+		<li role="presentation" class="active"><a href="#medicineInput"
+			aria-controls="medicineInput" role="tab" data-toggle="tab">药品录入</a></li>
 		<!-- 		<li role="presentation"><a href="#addCoursePanel" -->
 		<!-- 			aria-controls="addCoursePanel" role="tab" data-toggle="tab">新增</a></li> -->
 	</ul>
 	<!--end-->
 	<!-- 页签面板-->
 	<div class="tab-content">
-		<!-- 添加课程按钮 -->
-		<div role="tabpanel" class="tab-pane active" id="addCoursePanel">
+		<!-- 添加药品面板 -->
+		<div role="tabpanel" class="tab-pane active" id="medicineInput">
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<form class="form-horizontal" action="" method="post">
 
 						<div class="form-group">
-							<label class="col-md-2 control-label" for="add_courseName">药品名称:</label>
+							<label class="col-md-2 control-label" for="medicineName">药品名称:</label>
 							<div class="col-md-8">
-								<input type="text" id="add_courseName" class="form-control">
+								<input type="text" id="medicineName" class="form-control">
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-2 control-label" for="add_recommended">单价:
+							<label class="col-md-2 control-label" for="medicinePrice">单价:
 							</label>
 							<div class="col-md-8">
 								<input type="number" id="add_recommended" class="form-control">
@@ -31,31 +31,34 @@
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-2 control-label" for="picture">药品图片:</label>
+							<label class="col-md-2 control-label" for="medicinePicture">药品图片:</label>
 							<div class="col-md-8">
-								<input type="file" name="filename" id="picture" enctype="multipart/form-data">
-							</div>
-						</div>
-						
-						<div class="form-group">
-							<label class="col-md-2 control-label" for="add_courseName">供应商名称:</label>
-							<div class="col-md-8">
-								<input type="text" id="add_courseName" class="form-control">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-2 control-label" for="add_courseName">制造商名称:</label>
-							<div class="col-md-8">
-								<input type="text" id="add_courseName" class="form-control">
+								<input type="file" name="filename" id="medicinePicture"
+									enctype="multipart/form-data">
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-2 control-label" for="courseDesc">药品说明书录入:</label>
+							<label class="col-md-2 control-label" for="supplyName">供应商名称:</label>
 							<div class="col-md-8">
-								<button class="btn btn-default">录入</button>
+								<input type="text" id="supplyName" class="form-control">
 							</div>
-						
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="demandName">制造商名称:</label>
+							<div class="col-md-8">
+								<input type="text" id="demandName" class="form-control">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="packageInsert">药品说明书录入:</label>
+							<div class="col-md-8">
+								<a href="#packageInsert" aria-controls="packageInsert"
+									role="tab" data-toggle="tab"><button
+										class="btn btn-default">录入</button></a>
+							</div>
+
 						</div>
 
 						<div class="form-group">
@@ -70,5 +73,61 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- 录入药品说明书的Modal界面  start-->
+	<div class="modal fade" id="packageInsert" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header" align="center">
+					<h4 class="modal-title" id="myModalLabel">
+						<strong>录入供应商信息</strong>
+					</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" action="" method="post">
+
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="supplyName">供应商名称:</label>
+							<div class="col-md-8">
+								<input type="text" id="supplyName" class="form-control">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="supplyPhone">联系电话:</label>
+							<div class="col-md-8">
+								<input type="number" id="supplyPhone" class="form-control">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="supplyEmail">邮箱:</label>
+							<div class="col-md-8">
+								<input type="text" id="supplyEmail" class="form-control">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="supplyAddress">地址:</label>
+							<div class="col-md-8">
+								<input type="text" id="supplyAddress" class="form-control">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-md-8 col-md-offset-2">
+								<button type="submit" class="btn btn-primary">确 认</button>
+								<button type="reset" class="btn btn-primary"
+									data-dismiss="modal">取 消</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 录入药品说明书的Modal界面  end-->
+
 </div>
 <!-- /tab-content-->

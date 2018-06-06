@@ -28,7 +28,7 @@ function reset_panel() {
 function draw_user() {
 	var data;
 	$.ajax({
-		url:"home/userStatistics",
+		url:"home/roleStatistics",
 		type:"post",
 		dataType:"json",
 		success:function(result){
@@ -40,7 +40,7 @@ function draw_user() {
 			window.myDoughnut = new Chart(ctx).Doughnut(result, {responsive : true});
 		},
 		error:function(){
-			alert("获取用户信息失败")
+			alert("获取人员信息失败")
 		}
 	});
 }

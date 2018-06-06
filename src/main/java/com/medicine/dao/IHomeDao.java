@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 @Repository("homeDao")
 public interface IHomeDao {
 	/**
-	 * 用户统计图
+	 * 角色统计图
 	 * @return
 	 */
-	public List<Map> userStatistics();
+	public List<Map> roleStatistics();
 }

@@ -5,8 +5,8 @@ import java.util.Map;
 
 public interface IHomeService {
 	/**
-	 * 用户统计
+	 * 角色统计
 	 * @return
 	 */
-	public List<Map> userStatistics();
+	public List<Map> roleStatistics();
 }
