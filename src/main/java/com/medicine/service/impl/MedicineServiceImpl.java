@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.medicine.dao.IMedicineDao;
+import com.medicine.model.DrugInfo;
 import com.medicine.model.Page;
 import com.medicine.service.IMedicineService;
 import com.medicine.util.PagingUtil;
@@ -28,5 +29,18 @@ public class MedicineServiceImpl implements IMedicineService {
 
 	public Integer queryDrugCount(Page page) {
 		return this.medicineDao.queryDrugCount(page);
+	}
+
+	@Override
+	public boolean addMedicine(DrugInfo drug) {
+		boolean flag = false;
+		try {
+			this.medicineDao.addMedicine(drug);
+			flag = true;
+		}catch (Exception e) {
+			flag = false;
+			e.printStackTrace();
+		}
+		return flag;
 	}
 }

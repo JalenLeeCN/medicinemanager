@@ -13,6 +13,11 @@
 		<typeAlias type="com.medicine.vo.PageView" alias="PageView"/>
 		<typeAlias type="com.medicine.model.DrugInfo" alias="DrugInfo"/>
 		<typeAlias type="com.medicine.vo.DrugInfoView" alias="DrugInfoView"/>
+		<typeAlias type="com.medicine.model.Customer" alias="Customer"/>
+		<typeAlias type="com.medicine.model.ExpenseCalender" alias="ExpenseCalender"/>
+		<typeAlias type="com.medicine.model.Manufacturer" alias="Manufacturer"/>
+		<typeAlias type="com.medicine.model.PackageInsert" alias="PackageInsert"/>
+		<typeAlias type="com.medicine.model.Provider" alias="Provider"/>
 	</typeAliases>
 <!-- 	<settings> -->
 <!-- 		<setting name="" value=""/> -->

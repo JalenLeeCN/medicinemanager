@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.medicine.dao.ISupplyDemandDao">
+	<!-- 添加供应商 -->
+	<insert id="addProvider" parameterType="Provider">
+		insert into providers
+		(
+		<trim suffixOverrides=",">
+			<if test="name != null">
+				`name`,
+			</if>
+			<if test="phoneNum != null">
+				`phone_num`,
+			</if>
+			<if test="email != null">
+				`email`,
+			</if>
+			<if test="address != null">
+				`address`,
+			</if>
+		</trim>
+		)
+		values
+		(
+		<trim suffixOverrides=",">
+			<if test="name != null">
+				#{name},
+			</if>
+			<if test="phoneNum != null">
+				#{phoneNum},
+			</if>
+			<if test="email != null">
+				#{email},
+			</if>
+			<if test="address != null">
+				#{address},
+			</if>
+		</trim>
+		)
+	</insert>
+	<!-- 添加制造商 -->
+	<insert id="addManufacturer" parameterType="Manufacturer">
+		insert into manufacturer
+		(
+		<trim suffixOverrides=",">
+			<if test="name != null">
+				`name`,
+			</if>
+			<if test="faxNo != null">
+				`fax_no`,
+			</if>
+			<if test="phoneNum != null">
+				`phone_num`,
+			</if>
+			<if test="productAddress != null">
+				`product_address`,
+			</if>
+			<if test="registerAddress != null">
+				`register_address`,
+			</if>
+			<if test="website != null">
+				`website`,
+			</if>
+			<if test="postalCode != null">
+				`postal_code`,
+			</if>
+		</trim>
+		)
+		values
+		(
+		<trim suffixOverrides=",">
+			<if test="name != null">
+				#{name},
+			</if>
+			<if test="faxNo != null">
+				#{faxNo},
+			</if>
+			<if test="phoneNum != null">
+				#{phoneNum},
+			</if>
+			<if test="productAddress != null">
+				#{productAddress},
+			</if>
+			<if test="registerAddress != null">
+				#{registerAddress},
+			</if>
+			<if test="website != null">
+				#{website},
+			</if>
+			<if test="postalCode != null">
+				#{postalCode},
+			</if>
+		</trim>
+		)
+	</insert>
+	<!-- 查询供应商信息 -->
+	<select id="providerInfo" parameterType="Page" resultType="Provider">
+		select 
+    		`id`, `name`, `phone_num` as phoneNum, `email`, `address`
+		from
+   			providers
+	</select>
+	<!-- 查询供应商总数 -->
+	<select id="qryProviderCount" parameterType="Page" resultType="java.lang.Integer">
+		select count(id) from providers
+	</select>
+	<!-- 查询制造商信息 -->
+	<select id="manufacturerInfo" parameterType="Page" resultType="Manufacturer">
+		select 
+		    `id`,
+		    `name`,
+		    `product_address` as productAddress,
+		    `postal_code` as postalCode,
+		    `phone_num` as phoneNum,
+		    `fax_no` as faxNo,
+		    `register_address` as registerAddress,
+		    `website`
+		from
+    		manufacturer
+	</select>
+	<!-- 查询制造商总数 -->
+	<select id="qryManufacturerCount" parameterType="Page" resultType="java.lang.Integer">
+		select count(id) from manufacturer
+	</select>
+</mapper>

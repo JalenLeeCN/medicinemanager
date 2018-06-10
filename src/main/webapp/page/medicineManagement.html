@@ -3,8 +3,8 @@
 	<ul id="course_tab" class="nav nav-tabs " role="tablist">
 		<li role="presentation" class="active"><a href="#course"
 			aria-controls="course" role="tab" data-toggle="tab">药品管理</a></li>
-<!-- 		<li role="presentation"><a href="#addCoursePanel" -->
-<!-- 			aria-controls="addCoursePanel" role="tab" data-toggle="tab">新增</a></li> -->
+		<!-- 		<li role="presentation"><a href="#addCoursePanel" -->
+		<!-- 			aria-controls="addCoursePanel" role="tab" data-toggle="tab">新增</a></li> -->
 	</ul>
 	<!--end-->
 	<!-- 页签面板-->
@@ -16,8 +16,9 @@
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Search for..."> 
-								<span class="input-group-btn">
+								<input type="text" class="form-control"
+									placeholder="Search for..."> <span
+									class="input-group-btn">
 									<button class="btn btn-primary" type="button">搜 索</button>
 								</span>
 							</div>
@@ -43,12 +44,11 @@
 								<td>12</td>
 								<td>p001</td>
 								<td>m001</td>
-								<td><a href="" data-toggle="modal" data-target="#inputInsert" aria-hidden="true">查看说明书</a></td>
 								<td><a href="" data-toggle="modal"
-									data-target="#editCourse"><span
+									data-target="#editInsert" aria-hidden="true">编辑说明书</a></td>
+								<td><a href="" data-toggle="modal" data-target="#editDrug"><span
 										class="glyphicon glyphicon-pencil" aria-hidden="true"></span>编辑</a>
-									<a href="" data-toggle="modal"
-									data-target=".bs-example-modal-sm"><span
+									<a href="" data-toggle="modal" data-target="#deleteDrug"><span
 										class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除</a>
 								</td>
 							</tr>
@@ -58,12 +58,11 @@
 								<td>2</td>
 								<td>p002</td>
 								<td>m002</td>
-								<td><a href="" data-toggle="modal" data-target="#inputInsert" aria-hidden="true">查看说明书</a></td>
 								<td><a href="" data-toggle="modal"
-									data-target="#editCourse"><span
+									data-target="#editInsert" aria-hidden="true">编辑说明书</a></td>
+								<td><a href="" data-toggle="modal" data-target="#editDrug"><span
 										class="glyphicon glyphicon-pencil" aria-hidden="true"></span>编辑</a>
-									<a href="" data-toggle="modal"
-									data-target=".bs-example-modal-sm"><span
+									<a href="" data-toggle="modal" data-target="#deleteDrug"><span
 										class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除</a>
 								</td>
 							</tr>
@@ -73,12 +72,11 @@
 								<td>6</td>
 								<td>p003</td>
 								<td>m003</td>
-								<td><a href="" data-toggle="modal" data-target="#inputInsert" aria-hidden="true">查看说明书</a></td>
 								<td><a href="" data-toggle="modal"
-									data-target="#editCourse"><span
+									data-target="#editInsert" aria-hidden="true">编辑说明书</a></td>
+								<td><a href="" data-toggle="modal" data-target="#editDrug"><span
 										class="glyphicon glyphicon-pencil" aria-hidden="true"></span>编辑</a>
-									<a href="" data-toggle="modal"
-									data-target=".bs-example-modal-sm"><span
+									<a href="" data-toggle="modal" data-target="#deleteDrug"><span
 										class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除</a>
 								</td>
 							</tr>
@@ -88,12 +86,11 @@
 								<td>18</td>
 								<td>p004</td>
 								<td>m004</td>
-								<td><a href="" data-toggle="modal" data-target="#inputInsert" aria-hidden="true">查看说明书</a></td>
 								<td><a href="" data-toggle="modal"
-									data-target="#editCourse"><span
+									data-target="#editInsert" aria-hidden="true">编辑说明书</a></td>
+								<td><a href="" data-toggle="modal" data-target="#editDrug"><span
 										class="glyphicon glyphicon-pencil" aria-hidden="true"></span>编辑</a>
-									<a href="" data-toggle="modal"
-									data-target=".bs-example-modal-sm"><span
+									<a href="" data-toggle="modal" data-target="#deleteDrug"><span
 										class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除</a>
 								</td>
 							</tr>
@@ -103,12 +100,11 @@
 								<td>0.5</td>
 								<td>p005</td>
 								<td>m005</td>
-								<td><a href="" data-toggle="modal" data-target="#inputInsert" aria-hidden="true">查看说明书</a></td>
 								<td><a href="" data-toggle="modal"
-									data-target="#editCourse"><span
+									data-target="#editInsert" aria-hidden="true">编辑说明书</a></td>
+								<td><a href="" data-toggle="modal" data-target="#editDrug"><span
 										class="glyphicon glyphicon-pencil" aria-hidden="true"></span>编辑</a>
-									<a href="" data-toggle="modal"
-									data-target=".bs-example-modal-sm"><span
+									<a href="" data-toggle="modal" data-target="#deleteDrug"><span
 										class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除</a>
 								</td>
 							</tr>
@@ -118,8 +114,8 @@
 			</div>
 
 			<!-- 删除药品的Modal界面 -->
-			<div id="deletecourse_modal" class="modal fade bs-example-modal-sm" tabindex="-1"
-				role="dialog" aria-labelledby="mySmallModalLabel">
+			<div id="deleteDrug" class="modal fade bs-example-modal-sm"
+				tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 				<div class="modal-dialog modal-sm">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -131,7 +127,8 @@
 						</div>
 						<div class="modal-body">确认删除该记录？</div>
 						<div class="modal-footer">
-							<button id="deleteCourse_button" type="button" class="btn btn-primary">确 认</button>
+							<button id="deleteCourse_button" type="button"
+								class="btn btn-primary">确 认</button>
 							<button type="button" class="btn btn-primary"
 								data-dismiss="modal">取 消</button>
 						</div>
@@ -140,7 +137,7 @@
 			</div>
 
 			<!-- 修改药品的Modal界面 -->
-			<div class="modal fade" id="editCourse" tabindex="-1" role="dialog"
+			<div class="modal fade" id="editDrug" tabindex="-1" role="dialog"
 				aria-labelledby="myModalLabel">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
@@ -152,99 +149,314 @@
 						<div class="modal-body">
 							<form class="form-horizontal" action="" method="post">
 								<div class="form-group">
-							<label class="col-md-2 control-label" for="add_courseName">药品名称:</label>
-							<div class="col-md-8">
-								<input type="text" id="add_courseName" class="form-control">
-							</div>
-						</div>
+									<label class="col-md-2 control-label" for="add_courseName">药品名称:</label>
+									<div class="col-md-8">
+										<input type="text" id="add_courseName" class="form-control">
+									</div>
+								</div>
 
-						<div class="form-group">
-							<label class="col-md-2 control-label" for="add_recommended">单价:
-							</label>
-							<div class="col-md-8">
-								<input type="number" id="add_recommended" class="form-control">
-							</div>
-						</div>
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="add_recommended">单价:
+									</label>
+									<div class="col-md-8">
+										<input type="number" id="add_recommended" class="form-control">
+									</div>
+								</div>
 
-						<div class="form-group">
-							<label class="col-md-2 control-label" for="picture">药品图片:</label>
-							<div class="col-md-8">
-								<input type="file" name="filename" id="picture" enctype="multipart/form-data">
-							</div>
-						</div>
-						
-						<div class="form-group">
-							<label class="col-md-2 control-label" for="add_courseName">供应商名称:</label>
-							<div class="col-md-8">
-								<input type="text" id="add_courseName" class="form-control">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-2 control-label" for="add_courseName">制造商名称:</label>
-							<div class="col-md-8">
-								<input type="text" id="add_courseName" class="form-control">
-							</div>
-						</div>
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="picture">药品图片:</label>
+									<div class="col-md-8">
+										<input type="file" name="filename" id="picture"
+											enctype="multipart/form-data">
+									</div>
+								</div>
 
-						<div class="form-group">
-							<label class="col-md-2 control-label" for="courseDesc">药品说明书修改:</label>
-							<div class="col-md-8">
-								<button class="btn btn-default">修改</button>
-							</div>
-						
-						</div>
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="add_courseName">供应商名称:</label>
+									<div class="col-md-8">
+										<input type="text" id="add_courseName" class="form-control">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="add_courseName">制造商名称:</label>
+									<div class="col-md-8">
+										<input type="text" id="add_courseName" class="form-control">
+									</div>
+								</div>
 
-						<div class="form-group">
-							<div class="col-md-8 col-md-offset-2">
-								<button type="submit" class="btn btn-primary">确 认</button>
-								<button type="reset" class="btn btn-primary">重 置</button>
-							</div>
-						</div>
+<!-- 								<div class="form-group"> -->
+<!-- 									<label class="col-md-2 control-label" for="courseDesc">药品说明书修改:</label> -->
+<!-- 									<div class="col-md-8"> -->
+<!-- 										<button class="btn btn-default">修改</button> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+
+								<div class="form-group">
+									<div class="col-md-8 col-md-offset-2">
+										<button type="submit" class="btn btn-primary">确 认</button>
+										<button type="reset" class="btn btn-primary">重 置</button>
+									</div>
+								</div>
 							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 			<!-- 修改页面 end -->
-			
+
 			<!-- 药品说明书修改Modal界面 -->
-			<div class="modal fade" id="inputInsert" tabindex="-1" role="dialog"
+			<div class="modal fade" id="editInsert" tabindex="-1" role="dialog"
 				aria-labelledby="myModalLabel">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header" align="center">
 							<h4 class="modal-title" id="myModalLabel">
-								<strong>编辑药品说明书</strong>
+								<strong>修改药品说明书</strong>
 							</h4>
 						</div>
 						<div class="modal-body">
 							<form class="form-horizontal" action="" method="post">
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="courseName">课程名称:</label>
+									<label class="col-md-2 control-label" for="drugName">药品名称:</label>
 									<div class="col-md-8">
-										<input type="text" id="courseName" class="form-control">
+										<!-- 加入blur()事件,失去焦点时ajax查询药品名称,并带回药品id,做关联
+												                                  查询药品名称是否存在药品说明书-->
+										<input type="text" id="drugName" class="form-control">
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="recommended">推荐指数:
-									</label>
+									<label class="col-md-2 control-label" for="commonName">通用名称:</label>
 									<div class="col-md-8">
-										<input type="number" id="recommended" class="form-control">
+										<input type="text" id="commonName" class="form-control">
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="picture">课程图片:</label>
+									<label class="col-md-2 control-label" for="productName">商品名称:</label>
 									<div class="col-md-8">
-										<input type="file" id="picture">
+										<input type="text" id="productName" class="form-control">
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="courseDesc">课程描述:</label>
+									<label class="col-md-2 control-label" for="englishName">英文名称:</label>
 									<div class="col-md-8">
-										<textarea class="form-control" rows="4"></textarea>
+										<input type="text" id="englishName" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="chineseName">汉语拼音:</label>
+									<div class="col-md-8">
+										<input type="text" id="chineseName" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="drugType">药品类型:</label>
+									<div class="col-md-8">
+										<input type="number" id="drugType" class="form-control"
+											placeholder="处方药:0:化学药品 1:治疗用生物制品 非处方药:2:化学药品 3:中成药">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="approvalDate">核准日期:</label>
+									<div class="col-md-8">
+										<input type="date" id="approvalDate" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="identification">特殊/外用药品标识:</label>
+									<div class="col-md-8">
+										<input type="text" id="identification" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="alterDate">修改日期:</label>
+									<div class="col-md-8">
+										<input type="date" id="alterDate" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="advice">忠告语:</label>
+									<div class="col-md-8">
+										<input type="text" id="advice" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="warning">警告语:</label>
+									<div class="col-md-8">
+										<input type="text" id="warning" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="elements">成分:</label>
+									<div class="col-md-8">
+										<input type="text" id="elements" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="character">性状:</label>
+									<div class="col-md-8">
+										<input type="text" id="character" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="adaptationDisease">适应症/功能主治:</label>
+									<div class="col-md-8">
+										<input type="text" id="adaptationDisease" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="specification">规格:</label>
+									<div class="col-md-8">
+										<input type="text" id="specification" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label"
+										for="dosageAdministration">用法用量:</label>
+									<div class="col-md-8">
+										<input type="text" id="dosageAdministration"
+											class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="untoward">不良反应:</label>
+									<div class="col-md-8">
+										<input type="text" id="untoward" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="taboo">禁忌:</label>
+									<div class="col-md-8">
+										<input type="text" id="taboo" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="notes">注意事项:</label>
+									<div class="col-md-8">
+										<input type="text" id="notes" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="drugInteraction">药物相互作用:</label>
+									<div class="col-md-8">
+										<input type="text" id="drugInteraction" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="pharmacologicEffect">药理作用:</label>
+									<div class="col-md-8">
+										<input type="text" id="pharmacologicEffect"
+											class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="storage">贮藏(条件):</label>
+									<div class="col-md-8">
+										<input type="text" id="storage" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="packaging">规格:</label>
+									<div class="col-md-8">
+										<input type="text" id="packaging" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="manufactureDate">生产日期:</label>
+									<div class="col-md-8">
+										<input type="date" id="manufactureDate" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="validityDate">有效期:</label>
+									<div class="col-md-8">
+										<input type="text" id="validityDate" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="lossEfficacyDate">失效日期:</label>
+									<div class="col-md-8">
+										<input type="date" id="lossEfficacyDate" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="standard">执行标准:</label>
+									<div class="col-md-8">
+										<input type="text" id="standard" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="approvalNum">批准文号:</label>
+									<div class="col-md-8">
+										<input type="text" id="approvalNum" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="reviseDate">说明书修订日期:</label>
+									<div class="col-md-8">
+										<input type="date" id="reviseDate" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="manufacturer">生产企业:</label>
+									<div class="col-md-8">
+										<input type="text" id="manufacturer" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="pregnantWoman">孕妇及哺乳期妇女用药:</label>
+									<div class="col-md-8">
+										<input type="text" id="pregnantWoman" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="children">儿童用药:</label>
+									<div class="col-md-8">
+										<input type="text" id="children" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="agedness">老年用药:</label>
+									<div class="col-md-8">
+										<input type="text" id="agedness" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="clinicalTest">临床试验:</label>
+									<div class="col-md-8">
+										<input type="text" id="clinicalTest" class="form-control">
 									</div>
 								</div>
 
@@ -261,6 +473,7 @@
 				</div>
 			</div>
 			<!-- 药品说明书修改Modal界面 end -->
+
 			<!-- 分页导航 -->
 			<nav class="col-md-4 col-md-offset-4">
 				<ul id="course_page" class="pagination">
@@ -282,4 +495,4 @@
 
 	</div>
 </div>
-	<!-- /tab-content-->
+<!-- /tab-content-->

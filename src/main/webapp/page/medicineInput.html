@@ -2,9 +2,9 @@
 	<!-- 页签导航 -->
 	<ul class="nav nav-tabs " role="tablist">
 		<li role="presentation" class="active"><a href="#medicineInput"
-			aria-controls="medicineInput" role="tab" data-toggle="tab">药品录入</a></li>
-		<!-- 		<li role="presentation"><a href="#addCoursePanel" -->
-		<!-- 			aria-controls="addCoursePanel" role="tab" data-toggle="tab">新增</a></li> -->
+			aria-controls="medicineInput" role="tab" data-toggle="tab">药品信息录入</a></li>
+		<li role="presentation"><a href="#packageInsertInput"
+			aria-controls="packageInsertInput" role="tab" data-toggle="tab">药品说明书录入</a></li>
 	</ul>
 	<!--end-->
 	<!-- 页签面板-->
@@ -39,26 +39,27 @@
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-2 control-label" for="supplyName">供应商名称:</label>
+							<label class="col-md-2 control-label" for="supplyName">供应商:</label>
 							<div class="col-md-8">
-								<input type="text" id="supplyName" class="form-control">
+								<input type="text" id="supplyName" class="form-control"
+									placeholder="请输入供应商编号">
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-md-2 control-label" for="demandName">制造商名称:</label>
+							<label class="col-md-2 control-label" for="demandName">制造商:</label>
 							<div class="col-md-8">
-								<input type="text" id="demandName" class="form-control">
+								<input type="text" id="demandName" class="form-control"
+									placeholder="请输入制造商编号">
 							</div>
 						</div>
 
-						<div class="form-group">
-							<label class="col-md-2 control-label" for="packageInsert">药品说明书录入:</label>
-							<div class="col-md-8">
-								<a href="" data-target="#packageInsert" data-toggle="modal"><button
-										class="btn btn-default">录入</button></a>
-							</div>
-
-						</div>
+						<!-- 						<div class="form-group"> -->
+						<!-- 							<label class="col-md-2 control-label" for="packageInsert">药品说明书录入:</label> -->
+						<!-- 							<div class="col-md-8"> -->
+						<!-- 								<a href="#packageInsertInput" data-toggle="tab"><button -->
+						<!-- 										class="btn btn-default">录入</button></a> -->
+						<!-- 							</div> -->
+						<!-- 						</div> -->
 
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-2">
@@ -71,25 +72,18 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<!-- 录入药品说明书的Modal界面  start-->
-	<div class="modal fade" id="packageInsert" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header" align="center">
-					<h4 class="modal-title" id="myModalLabel">
-						<strong>录入药品说明书</strong>
-					</h4>
-				</div>
-				<div class="modal-body">
+		<!-- 添加药品信息面板 end -->
+		<!-- 添加药品说明书面板  start -->
+		<div role="tabpanel" class="tab-pane" id="packageInsertInput">
+			<div class="panel panel-default">
+				<div class="panel-body">
 					<form class="form-horizontal" action="" method="post">
 
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="drugName">药品名称:</label>
 							<div class="col-md-8">
-							<!-- 加入blur()事件,失去焦点时ajax查询药品名称,并带回药品id -->
+								<!-- 加入blur()事件,失去焦点时ajax查询药品名称,并带回药品id,做关联
+												                                  查询药品名称是否存在药品说明书-->
 								<input type="text" id="drugName" class="form-control">
 							</div>
 						</div>
@@ -125,8 +119,8 @@
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="drugType">药品类型:</label>
 							<div class="col-md-8">
-								<input type="number" id="drugType" class="form-control">
-								<span>处方药:0:化学药品 1:治疗用生物制品 非处方药:2:化学药品 3:中成药</span>
+								<input type="number" id="drugType" class="form-control"
+									placeholder="处方药:0:化学药品 1:治疗用生物制品 非处方药:2:化学药品 3:中成药">
 							</div>
 						</div>
 
@@ -150,21 +144,21 @@
 								<input type="date" id="alterDate" class="form-control">
 							</div>
 						</div>
-						
+
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="advice">忠告语:</label>
 							<div class="col-md-8">
 								<input type="text" id="advice" class="form-control">
 							</div>
 						</div>
-						
+
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="warning">警告语:</label>
 							<div class="col-md-8">
 								<input type="text" id="warning" class="form-control">
 							</div>
 						</div>
-						
+
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="elements">成分:</label>
 							<div class="col-md-8">
@@ -196,7 +190,8 @@
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="dosageAdministration">用法用量:</label>
 							<div class="col-md-8">
-								<input type="text" id="dosageAdministration" class="form-control">
+								<input type="text" id="dosageAdministration"
+									class="form-control">
 							</div>
 						</div>
 
@@ -325,7 +320,7 @@
 								<input type="text" id="clinicalTest" class="form-control">
 							</div>
 						</div>
-						
+
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-2">
 								<button type="submit" class="btn btn-primary">确 认</button>
@@ -337,8 +332,8 @@
 				</div>
 			</div>
 		</div>
+		<!-- 添加药品说明书面板  end -->
 	</div>
-	<!-- 录入药品说明书的Modal界面  end-->
 
 </div>
 <!-- /tab-content-->

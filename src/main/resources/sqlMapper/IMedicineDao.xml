@@ -6,26 +6,88 @@
 	<!-- 查询已入库药品简单信息 -->
 	<select id="querySimpleInfo" parameterType="Page" resultType="DrugInfoView">
 		select
-			d.name, p.name as providersName, m.name as manufacturerName
+		d.name, p.name as providersName, m.name as manufacturerName
 		from
-			drug_info d
-				left join
-			providers p ON d.providers_id = p.id
-				left join
-			manufacturer m ON d.manufacturer_id = m.id
+		drug_info d
+		left join
+		providers p ON d.providers_id = p.id
+		left join
+		manufacturer m ON d.manufacturer_id = m.id
 		where
-    		d.store_flag = 1
-		limit #{offset},#{pageSize};
+		d.store_flag = 1
+		limit
+		#{offset},#{pageSize};
 	</select>
 	<!-- 查询已入库药品数量 -->
 	<select id="queryDrugCount" parameterType="Page" resultType="java.lang.Integer">
-		select 
-    		count(*)
+		select
+		count(*)
 		from
-    		drug_info
+		drug_info
 		where
-    		d.store_flag = 1
-		limit #{offset},#{pageSize};
+		d.store_flag = 1
+		limit
+		#{offset},#{pageSize};
 	</select>
-	
+	<!-- 录入药品信息  -->
+	<insert id="addMedicine" parameterType="DrugInfo">
+		insert into drug_info
+		(
+		<trim suffixOverrides=",">
+			<if test="name != null">
+				`name`,
+			</if>
+			<if test="storeFlag != null">
+				`store_flag`,
+			</if>
+			<if test="unitPrice != null">
+				`unit_price`,
+			</if>
+			<if test="manufacturerId != null">
+				`manufacturer_id`,
+			</if>
+			<if test="providerId != null">
+				`providers_id`,
+			</if>
+			<if test="quantity != null">
+				`quantity`,
+			</if>
+			<if test="smalllestUnit != null">
+				`smalllest_unit`,
+			</if>
+			<if test="scale != null">
+				`scale`,
+			</if>
+		</trim>
+		)
+		values
+		(
+		<trim suffixOverrides=",">
+			<if test="name != null">
+				#{name},
+			</if>
+			<if test="storeFlag != null">
+				#{storeFlag},
+			</if>
+			<if test="unitPrice != null">
+				#{unitPrice},
+			</if>
+			<if test="manufacturerId != null">
+				#{manufacturerId},
+			</if>
+			<if test="providerId != null">
+				#{providerId},
+			</if>
+			<if test="quantity != null">
+				#{quantity},
+			</if>
+			<if test="smalllestUnit != null">
+				#{smalllestUnit},
+			</if>
+			<if test="scale != null">
+				#{scale},
+			</if>
+		</trim>
+		)
+	</insert>
 </mapper>

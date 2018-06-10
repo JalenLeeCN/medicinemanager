@@ -17,6 +17,10 @@ public class DrugInfo implements Serializable {
 	private Provider provider;
 	private List<ExpenseCalender> expenseCalenders;
 	private List<PackageInsert> packageInserts;
+	
+	private Integer manufacturerId;
+	private Integer providerId;
+	private Integer scale;
 
 	public DrugInfo() {
 	}
@@ -127,6 +131,30 @@ public class DrugInfo implements Serializable {
 		packageInsert.setDrugInfo(null);
 
 		return packageInsert;
+	}
+
+	public Integer getManufacturerId() {
+		return manufacturerId;
+	}
+
+	public void setManufacturerId(Integer manufacturerId) {
+		this.manufacturerId = manufacturerId;
+	}
+
+	public Integer getProviderId() {
+		return providerId;
+	}
+
+	public void setProviderId(Integer providerId) {
+		this.providerId = providerId;
+	}
+
+	public Integer getScale() {
+		return scale;
+	}
+
+	public void setScale(Integer scale) {
+		this.scale = scale;
 	}
 
 }

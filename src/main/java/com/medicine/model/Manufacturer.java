@@ -2,7 +2,11 @@ package com.medicine.model;
 
 import java.io.Serializable;
 import java.util.List;
-
+/**
+ * 制造商
+ * @author LZZ
+ *
+ */
 public class Manufacturer implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int id;

@@ -1,5 +1,6 @@
 package com.medicine.service;
 
+import com.medicine.model.DrugInfo;
 import com.medicine.model.Page;
 import com.medicine.vo.PageView;
 
@@ -16,5 +17,11 @@ public interface IMedicineService {
 	 * @return
 	 */
 	Integer queryDrugCount(Page page);
+	/**
+	 * 药品录入
+	 * @param drug
+	 * @return
+	 */
+	public boolean addMedicine(DrugInfo drug);
 
 }
