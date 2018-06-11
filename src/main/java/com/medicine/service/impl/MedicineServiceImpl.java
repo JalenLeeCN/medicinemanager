@@ -43,4 +43,30 @@ public class MedicineServiceImpl implements IMedicineService {
 		}
 		return flag;
 	}
+
+	@Override
+	public PageView approval(Page page) {
+		List<DrugInfoView> duInfoViews = this.medicineDao.approval(page);
+		PageView pv = this.pagingUtil.pageBuilder(page, approvalCount(page), duInfoViews);
+		return pv;
+	}
+	
+	@Override
+	public Integer approvalCount(Page page) {
+		return this.medicineDao.approvalCount(page);
+	}
+
+	@Override
+	public boolean pass(Integer id) {
+		boolean flag = false;
+		try {
+			this.medicineDao.pass(id);
+			flag = true;
+		}catch (Exception e) {
+			flag = false;
+			e.printStackTrace();
+		}
+		return flag;
+	}
+	
 }

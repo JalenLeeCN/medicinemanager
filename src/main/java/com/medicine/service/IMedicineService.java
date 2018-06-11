@@ -23,5 +23,23 @@ public interface IMedicineService {
 	 * @return
 	 */
 	public boolean addMedicine(DrugInfo drug);
+	/**
+	 * 未入库药品查询
+	 * @param page
+	 * @return
+	 */
+	public PageView approval(Page page);
+	/**
+	 * 查询未入库药品总数量
+	 * @param page
+	 * @return
+	 */
+	Integer approvalCount(Page page);
+	/**
+	 * 根据id更新是否入库标志
+	 * @param id
+	 * @return
+	 */
+	public boolean pass(Integer id);
 
 }

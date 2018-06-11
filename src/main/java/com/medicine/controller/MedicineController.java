@@ -31,6 +31,17 @@ public class MedicineController{
 		return pv;
 	}
 	/**
+	 * 查询未入库药品信息
+	 * @param page
+	 * @return
+	 */
+	@RequestMapping("/approval")
+	@ResponseBody
+	public PageView approval(Page page){
+		PageView pv = this.medicineService.approval(page);
+		return pv;
+	}
+	/**
 	 * 添加药品信息
 	 * @param drug
 	 * @return
@@ -43,6 +54,17 @@ public class MedicineController{
 //		drug.setManufacturerId(1);
 //		drug.setProviderId(1);
 		return this.medicineService.addMedicine(drug);
+	}
+	
+	/**
+	 * 审批入库
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("/pass")
+	@ResponseBody
+	public boolean pass(Integer id) {
+		return this.medicineService.pass(id);
 	}
 	
 }

@@ -16,16 +16,16 @@
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="input-group">
-								<input type="text" class="form-control"
-									placeholder="Search for..."> <span
+								<input id="keyWord" type="text" class="form-control"
+									placeholder="请输入药品关键字..."> <span
 									class="input-group-btn">
-									<button class="btn btn-primary" type="button">搜 索</button>
+									<button class="btn btn-primary" type="button" onclick="qryDrugInfo(1)">搜 索</button>
 								</span>
 							</div>
 						</div>
 					</div>
 
-					<table class="table table-striped">
+					<table id="drugInfoTable" class="table table-striped">
 						<thead>
 							<tr>
 								<th class="col-md-1">编号</th>

@@ -16,5 +16,10 @@ public interface IMedicineDao {
 	public Integer queryDrugCount(Page page);
 
 	public void addMedicine(DrugInfo drug);
+
+	public List<DrugInfoView> approval(Page page);
 	
+	public Integer approvalCount(Page page);
+
+	public void pass(Integer id);
 }
