@@ -6,30 +6,39 @@
 	<!-- 查询已入库药品简单信息 -->
 	<select id="querySimpleInfo" parameterType="Page" resultType="DrugInfoView">
 		select
-		d.name, p.name as providersName, m.name as manufacturerName
+			d.id,d.name, p.name as providersName,
+			m.name as manufacturerName,d.picture as picture,
+			d.unit_price as unitPrice,d.quantity,d.scale,d.smalllest_unit as smalllestUnit,
+			d.quantity
 		from
-		drug_info d
+			drug_info d
 		left join
-		providers p ON d.providers_id = p.id
+			providers p ON d.providers_id = p.id
 		left join
-		manufacturer m ON d.manufacturer_id = m.id
+			manufacturer m ON d.manufacturer_id = m.id
 		where
-		d.store_flag = 1
-		limit
-		#{offset},#{pageSize};
+			d.store_flag = 1
+<!-- 		<if test="type != null"> -->
+<!-- 			and type = #{type} -->
+<!-- 		</if> -->
+		<if test="keyWord != null">
+			and d.name like #{keyWord}
+		</if>
+		<!-- limit -->
+		<!-- #{offset},#{pageSize}; -->
 	</select>
 	<!-- 查询已入库药品数量 -->
 	<select id="queryDrugCount" parameterType="Page" resultType="java.lang.Integer">
 		select
-		count(*)
+			count(*)
 		from
-		drug_info
+			drug_info d
 		where
-		d.store_flag = 1
-		limit
-		#{offset},#{pageSize};
+			d.store_flag = 1
+		<!-- limit -->
+		<!-- #{offset},#{pageSize}; -->
 	</select>
-	<!-- 录入药品信息  -->
+	<!-- 录入药品信息 -->
 	<insert id="addMedicine" parameterType="DrugInfo">
 		insert into drug_info
 		(
@@ -57,6 +66,9 @@
 			</if>
 			<if test="scale != null">
 				`scale`,
+			</if>
+			<if test="picture != null">
+				`picture`,
 			</if>
 		</trim>
 		)
@@ -86,6 +98,9 @@
 			</if>
 			<if test="scale != null">
 				#{scale},
+			</if>
+			<if test="picture != null">
+				#{picture},
 			</if>
 		</trim>
 		)

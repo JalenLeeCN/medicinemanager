@@ -18,59 +18,39 @@
 	<!-- 页签导航 -->
 	<ul class="nav nav-tabs " role="tablist">
 		<li role="presentation" class="active"><a href="#drugPanel"
-			aria-controls="drugPanel" role="tab" data-toggle="tab">药品</a></li>
-		<li role="presentation"><a href="#drugDesc"
-			aria-controls="drugDesc" role="tab" data-toggle="tab">详情</a></li>
+			aria-controls="drugPanel" role="tab" data-toggle="tab">药品信息</a></li>
+		<!-- 		<li role="presentation"><a href="#drugDesc" -->
+		<!-- 			aria-controls="drugDesc" role="tab" data-toggle="tab">详情</a></li> -->
 	</ul>
 	<!-- 页签面板-->
 	<div class="tab-content">
-		<!-- 删除记录的Modal界面  start -->
-		<div class="modal fade bs-example-modal-sm" tabindex="-1"
-			role="dialog" aria-labelledby="mySmallModalLabel">
-			<div class="modal-dialog modal-sm">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-						<h4 class="modal-title" id="myModalLabel">删除药品</h4>
-					</div>
-					<div class="modal-body">确认删除该记录？</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-primary">确 认</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal">取
-							消</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- 删除记录的Modal界面  end -->
 		<!-- 药品简略信息panel  start -->
 		<div role="tabpanel" class="tab-pane active" id="drugPanel">
 			<div class="panel panel-default">
 				<div class="panel-body">
 
-					<div class="btn-group" role="group" aria-label="...">
-						<button type="button" class="btn btn-default">处方药</button>
-						<button type="button" class="btn btn-default">非处方药</button>
-					</div>
-					<p></p>
+					<!-- 					<div class="btn-group" role="group" aria-label="..."> -->
+					<!-- 						<button type="button" class="btn btn-default" value="0" -->
+					<!-- 							onclick="setType(this)">处方药</button> -->
+					<!-- 						<button type="button" class="btn btn-default" value="1" -->
+					<!-- 							onclick="setType(this)">非处方药</button> -->
+					<!-- 					</div> -->
 
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="input-group">
-								<input type="text" class="form-control"
-									placeholder="Search for..."> <span
+								<input id="drugKeyWord" type="text" class="form-control"
+									placeholder="请输入药品关键字..."> <span
 									class="input-group-btn">
-									<button class="btn btn-primary" type="button">搜 索</button>
+									<button class="btn btn-primary" type="button"
+										onclick="querySimpleInfo(1)">搜 索</button>
 								</span>
 							</div>
 						</div>
 					</div>
-					<p></p>
 
-					<div class="row">
+					<div id="drugSimpleInfo" class="row">
+
 						<div class="col-md-3">
 							<div class="thumbnail">
 								<a href="#drugDesc"> <img src="images/Java-evn.png"
@@ -132,9 +112,9 @@
 								</div>
 							</div>
 						</div>
-					</div>
+						<!-- 					</div> -->
 
-					<div class="row">
+						<!-- 					<div class="row"> -->
 						<div class="col-md-3">
 							<div class="thumbnail">
 								<img src="images/Java-var.png" alt="...">
@@ -199,21 +179,21 @@
 			</div>
 
 			<!-- 分页导航 -->
-			<nav class="col-md-4 col-md-offset-4">
-				<ul class="pagination">
-					<li><a href="#" aria-label="Previous"> <span
-							aria-hidden="true">&laquo;</span>
-					</a></li>
-					<li class="active"><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#" aria-label="Next"> <span
-							aria-hidden="true">&raquo;</span>
-					</a></li>
-				</ul>
-			</nav>
+			<!-- 			<nav class="col-md-4 col-md-offset-4"> -->
+			<!-- 				<ul class="pagination"> -->
+			<!-- 					<li><a href="#" aria-label="Previous"> <span -->
+			<!-- 							aria-hidden="true">&laquo;</span> -->
+			<!-- 					</a></li> -->
+			<!-- 					<li class="active"><a href="#">1</a></li> -->
+			<!-- 					<li><a href="#">2</a></li> -->
+			<!-- 					<li><a href="#">3</a></li> -->
+			<!-- 					<li><a href="#">4</a></li> -->
+			<!-- 					<li><a href="#">5</a></li> -->
+			<!-- 					<li><a href="#" aria-label="Next"> <span -->
+			<!-- 							aria-hidden="true">&raquo;</span> -->
+			<!-- 					</a></li> -->
+			<!-- 				</ul> -->
+			<!-- 			</nav> -->
 		</div>
 		<!-- 药品简略信息panel  end -->
 
@@ -222,12 +202,73 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="rows">
-					<span>请点击简略信息页药品名进行查看药品详情</span>
+						<span>请点击简略信息页药品名进行查看药品详情</span>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- 药品详细信息panel  start -->
+		<!-- 药品详细信息Modal界面  start-->
+		<div class="modal fade" id="drugDetail" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header" align="center">
+						<h4 class="modal-title" id="myModalLabel">
+							<strong>详细信息</strong>
+						</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal" action="" method="post">
+
+							<div class="form-group">
+								<label class="col-md-2 control-label" for="drugName">药品名称:</label>
+								<div class="col-md-8">
+									<span id="drugName"></span>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-md-2 control-label" for="drugPrice">药品单价:</label>
+								<div class="col-md-8">
+									<span id="drugPrice"></span>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-md-2 control-label" for="drugProd">制造商:</label>
+								<div class="col-md-8">
+									<span id="drugProd"></span>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-md-2 control-label" for="drugProv">供应商:</label>
+								<div class="col-md-8">
+									<span id="drugProv"></span>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-md-2 control-label" for="drugQuantity">库存数量:</label>
+								<div class="col-md-8">
+									<span id="drugQuantity"></span>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-md-2 control-label" for="drugScale">规格与最小单位关系:</label>
+								<div class="col-md-8">
+									<span id="drugScale"></span>
+								</div>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 药品详细信息Modal界面 end -->
 	</div>
 	<!--tab-content-->
 </div>

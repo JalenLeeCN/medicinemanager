@@ -72,7 +72,7 @@ public class Page {
 	}
 
 	public void setKeyWord(String keyWord) {
-		this.keyWord = keyWord;
+		this.keyWord = "%"+keyWord+"%";
 	}
 
 	/**

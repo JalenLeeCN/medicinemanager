@@ -24,7 +24,7 @@ public class MedicineController{
 	 * @param page
 	 * @return
 	 */
-	@RequestMapping(value="/simpleInfo/{currentPage}/{keyWord}",method=RequestMethod.GET)
+	@RequestMapping("/simpleInfo")
 	@ResponseBody
 	public PageView querySimpleInfo(Page page){
 		PageView pv = this.medicineService.querySimpleInfo(page);

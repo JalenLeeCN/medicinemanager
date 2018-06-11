@@ -21,6 +21,7 @@ public class DrugInfo implements Serializable {
 	private Integer manufacturerId;
 	private Integer providerId;
 	private Integer scale;
+	private String picture;
 
 	public DrugInfo() {
 	}
@@ -155,6 +156,14 @@ public class DrugInfo implements Serializable {
 
 	public void setScale(Integer scale) {
 		this.scale = scale;
+	}
+
+	public String getPicture() {
+		return picture;
+	}
+
+	public void setPicture(String picture) {
+		this.picture = picture;
 	}
 
 }
