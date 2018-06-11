@@ -30,13 +30,14 @@ public class MedicineController{
 		PageView pv = this.medicineService.querySimpleInfo(page);
 		return pv;
 	}
-	
-	@RequestMapping("/drugAddtion")
+	/**
+	 * 添加药品信息
+	 * @param drug
+	 * @return
+	 */
+	@RequestMapping(value="/drugAddtion",method= RequestMethod.POST)
 	@ResponseBody
-	@Transactional(rollbackFor = RuntimeException.class, readOnly = true)
 	public boolean addMedicine(DrugInfo drug) {
-		//1.添加药品说明书信息
-		//2.添加药品信息
 //		drug.setName("drugName");
 //		drug.setUnitPrice(new BigDecimal(111));
 //		drug.setManufacturerId(1);

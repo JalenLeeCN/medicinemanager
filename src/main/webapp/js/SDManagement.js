@@ -1,17 +1,40 @@
-//@ sourceURL=SDInput.js
+//@ sourceURL=SDManagement.js
 $(function(){
 	//进入页面初始化查询
-//	qryProvider(1);
+	qryProvider(1);
 });
+/**
+ * 查询供应商
+ * @param currentPage
+ * @returns
+ */
 function qryProvider(currentPage){
+	var provKeyword = $("#provKeyword").val();
 	// 异步提交
 	$.ajax({
-		url : basePath + "supply/addprovider",
+		url : basePath + "supply/providerInfo",
 		type : "post",
-		data:{"name":supplyName,"phoneNum":supplyPhone,"email":supplyEmail,"address":supplyAddress},
+		data:{"currentPage":currentPage,"keyWord":provKeyword},
 		dataType : "json",
-		success : function() {
-			alert("添加成功")
+		success : function(pv) {
+			var result = pv.result;
+			console.log(result);
+			$("#provTable tbody").html("");
+			$(result).each(function(index,e){
+				var provInfo = '<tr>'+
+									'<td>'+e.id+'</td>'+
+									'<td>'+e.name+'</td>'+
+									'<td>'+e.phoneNum+'</td>'+
+									'<td>'+e.email+'</td>'+
+									'<td>'+e.address+'</td>'+
+									'<td><a href="" data-toggle="modal" data-target="#editSupply">'+
+										'<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>编辑</a>'+
+										'<a href="" data-toggle="modal" data-target=".bs-example-modal-sm">'+
+										'<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除</a>'+
+									'</td>'+
+								'</tr>';
+				$("#provTable tbody").append(provInfo);
+			});
 		},
 		error : function() {
 			alert("请求失败");
@@ -20,27 +43,40 @@ function qryProvider(currentPage){
 	return false;
 }
 /**
- * 添加制造商
+ * 查询制造商
+ * @param currentPage
  * @returns
  */
-function addManufacturer(){
-	//获取页面的数据
-	var demandName = $("#demandName").val();
-	var demandProdAddress = $("#demandProdAddress").val();
-	var demandPostCode = $("#demandPostCode").val();
-	var demandPhone = $("#demandPhone").val();
-	var demandEmail = $("#demandEmail").val();
-	var demandRegAddress = $("#demandRegAddress").val();
-	var demandWebsit = $("#demandWebsit").val();
+function qryManufacturer(currentPage){
+	var prodKeyword = $("#prodKeyword").val();
 	// 异步提交
 	$.ajax({
-		url : basePath + "supply/addmanufacturer",
+		url : basePath + "supply/manufacturerInfo",
 		type : "post",
-		data:{"name":demandName,"productAddress":demandProdAddress,"postalCode":demandPostCode,
-			"phoneNum":demandPhone,"registerAddress":demandRegAddress,"website":demandWebsit,},
+		data:{"currentPage":currentPage,"keyWord":prodKeyword},
 		dataType : "json",
-		success : function() {
-			alert("添加成功")
+		success : function(pv) {
+			var result = pv.result;
+			$("#prodTable tbody").html("");
+			$(result).each(function(index,e){
+				var prodInfo = '<tr>'+
+									'<td>'+e.id+'</td>'+
+									'<td>'+e.name+'</td>'+
+									'<td>'+e.productAddress+'</td>'+
+									'<td>'+e.postalCode+'</td>'+
+									'<td>'+e.phoneNum+'</td>'+
+									'<td>'+e.faxNo+'</td>'+
+									'<td>'+e.website+'</td>'+
+									'<td>'+e.registerAddress+'</td>'+
+									'<td><a href="" data-toggle="modal" data-target="#editDemand">'+
+											'<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>编辑</a>'+
+											'<a href="" data-toggle="modal"'+
+											'data-target=".bs-example-modal-sm">'+
+											'<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除</a>'+
+									'</td>'+
+								'</tr>';
+				$("#prodTable tbody").append(prodInfo);
+			});
 		},
 		error : function() {
 			alert("请求失败");

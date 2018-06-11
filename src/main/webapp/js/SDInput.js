@@ -1,5 +1,4 @@
 //@ sourceURL=SDInput.js
-
 $(function(){
 	//添加供应商表单添加submit事件
 	$("#supplyInput form").submit(function(){

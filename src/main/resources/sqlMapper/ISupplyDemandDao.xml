@@ -101,6 +101,7 @@
     		`id`, `name`, `phone_num` as phoneNum, `email`, `address`
 		from
    			providers
+   		where name like #{keyWord}
 	</select>
 	<!-- 查询供应商总数 -->
 	<select id="qryProviderCount" parameterType="Page" resultType="java.lang.Integer">
@@ -119,6 +120,7 @@
 		    `website`
 		from
     		manufacturer
+    	where name like #{keyWord}
 	</select>
 	<!-- 查询制造商总数 -->
 	<select id="qryManufacturerCount" parameterType="Page" resultType="java.lang.Integer">

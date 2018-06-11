@@ -2,9 +2,9 @@
 	<!-- 页签导航 -->
 	<ul class="nav nav-tabs " role="tablist">
 		<li role="presentation" class="active"><a href="#supplyPanel"
-			aria-controls="supplyPanel" role="tab" data-toggle="tab">供应商信息</a></li>
+			aria-controls="supplyPanel" role="tab" data-toggle="tab" onclick="qryProvider(1)">供应商信息</a></li>
 		<li role="presentation"><a href="#demandPanel"
-			aria-controls="demandPanel" role="tab" data-toggle="tab">制造商信息</a></li>
+			aria-controls="demandPanel" role="tab" data-toggle="tab" onclick="qryManufacturer(1)">制造商信息</a></li>
 		<!-- <li role="presentation">
       <a href="#addActPanel" aria-controls="addActPanel" role="tab" data-toggle="tab">新增</a>
     </li> -->
@@ -19,18 +19,18 @@
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="input-group">
-								<input type="text" class="form-control"
-									placeholder="Search for..."> <span
+								<input id="provKeyword" type="text" class="form-control"
+									placeholder="请输入供应商关键字..."> <span
 									class="input-group-btn">
-									<button class="btn btn-primary" type="button">搜 索</button>
+									<button class="btn btn-primary" type="button" onclick="qryProvider(1)">搜 索</button>
 								</span>
 							</div>
 						</div>
 					</div>
-					<table id="supplyTable" class="table table-striped">
+					<table id="provTable" class="table table-striped">
 						<thead>
 							<tr>
-								<th class="col-md-1">#</th>
+								<th class="col-md-1">编号</th>
 								<th class="col-md-1">供应商名称</th>
 								<th class="col-md-1">联系电话</th>
 								<th class="col-md-1">邮箱</th>
@@ -65,24 +65,24 @@
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="input-group">
-								<input type="text" class="form-control"
-									placeholder="Search for..."> <span
+								<input id="prodKeyword" type="text" class="form-control"
+									placeholder="请输入制造商关键字..."> <span
 									class="input-group-btn">
-									<button class="btn btn-primary" type="button">搜 索</button>
+									<button class="btn btn-primary" type="button" onclick="qryManufacturer(1)">搜 索</button>
 								</span>
 							</div>
 						</div>
 					</div>
-					<table class="table table-striped">
+					<table id="prodTable" class="table table-striped">
 						<thead>
 							<tr>
-								<th class="col-md-1">#</th>
+								<th class="col-md-1">编号</th>
 								<th class="col-md-1">制造商名称</th>
 								<th class="col-md-1">生产地址</th>
 								<th class="col-md-1">邮政编码</th>
 								<th class="col-md-1">联系电话</th>
 								<th class="col-md-1">传真号码</th>
-								<th class="col-md-1">邮箱</th>
+								<th class="col-md-1">网址</th>
 								<th class="col-md-2">药品生产许可证注册地址</th>
 								<th class="col-md-1">操作</th>
 							</tr>
@@ -111,20 +111,20 @@
 		</div>
 		<!-- 制造商信息 end -->
 		<!-- 分页导航 -->
-		<nav class="col-md-4 col-md-offset-4">
-			<ul class="pagination">
-				<li><a href="#" aria-label="Previous"> <span
-						aria-hidden="true">&laquo;</span>
-				</a></li>
-				<li class="active"><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-				<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-				</a></li>
-			</ul>
-		</nav>
+<!-- 		<nav class="col-md-4 col-md-offset-4"> -->
+<!-- 			<ul class="pagination"> -->
+<!-- 				<li><a href="#" aria-label="Previous"> <span -->
+<!-- 						aria-hidden="true">&laquo;</span> -->
+<!-- 				</a></li> -->
+<!-- 				<li class="active"><a href="#">1</a></li> -->
+<!-- 				<li><a href="#">2</a></li> -->
+<!-- 				<li><a href="#">3</a></li> -->
+<!-- 				<li><a href="#">4</a></li> -->
+<!-- 				<li><a href="#">5</a></li> -->
+<!-- 				<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span> -->
+<!-- 				</a></li> -->
+<!-- 			</ul> -->
+<!-- 		</nav> -->
 	</div>
 	<!-- end -->
 

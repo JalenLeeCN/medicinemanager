@@ -55,7 +55,7 @@
 			<if test="manufacturerId != null">
 				`manufacturer_id`,
 			</if>
-			<if test="providerId != null">
+			<if test="providersId != null">
 				`providers_id`,
 			</if>
 			<if test="quantity != null">
@@ -87,8 +87,8 @@
 			<if test="manufacturerId != null">
 				#{manufacturerId},
 			</if>
-			<if test="providerId != null">
-				#{providerId},
+			<if test="providersId != null">
+				#{providersId},
 			</if>
 			<if test="quantity != null">
 				#{quantity},
