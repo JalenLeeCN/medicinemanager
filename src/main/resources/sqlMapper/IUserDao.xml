@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.medicine.dao.IUserDao">
+
+	<select id="qryUserInfo" parameterType="Page" resultType="UserView">
+		select 
+   			u.`id`, u.`name`, u.`email`, r.`name` as roleName
+		from
+   			users u
+        left join
+    		user_role ur ON u.id = ur.users_id
+        left join
+    		roles r ON r.id = ur.roles_id
+    	where 1=1
+    	<if test="keyWord != null">
+			and u.`name` like #{keyWord}
+		</if> 
+	</select>
+	<select id="qryUserCount" resultType="java.lang.Integer">
+		select 
+   			count(u.`id`)
+		from
+   			users u
+        left join
+    		user_role ur ON u.id = ur.users_id
+        left join
+    		roles r ON r.id = ur.roles_id
+	</select>
+
+</mapper>

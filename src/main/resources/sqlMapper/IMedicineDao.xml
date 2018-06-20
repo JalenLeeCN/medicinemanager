@@ -127,4 +127,8 @@
 	<update id="pass" parameterType="java.lang.Integer">
 		update drug_info set store_flag = 1 where id = #{id}
 	</update>
+	<!-- 删除药品信息 -->
+	<delete id="deleteDrug" parameterType="java.lang.Integer">
+		delete from drug_info where id = #{id};
+	</delete>
 </mapper>

@@ -68,5 +68,18 @@ public class MedicineServiceImpl implements IMedicineService {
 		}
 		return flag;
 	}
+
+	@Override
+	public boolean deleteDrug(Integer id) {
+		boolean flag = false;
+		try {
+			this.medicineDao.deleteDrug(id);
+			flag = true;
+		}catch (Exception e) {
+			flag = false;
+			e.printStackTrace();
+		}
+		return flag;
+	}
 	
 }

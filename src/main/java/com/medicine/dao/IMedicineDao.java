@@ -22,4 +22,6 @@ public interface IMedicineDao {
 	public Integer approvalCount(Page page);
 
 	public void pass(Integer id);
+
+	public void deleteDrug(Integer id);
 }

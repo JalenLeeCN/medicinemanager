@@ -38,7 +38,7 @@ function qryApprovalDrug(currentPage){
 									'<table class="table table-striped">'+
 										'<tbody>'+
 											'<tr>'+
-												'<td id="id" value="'+e.id+'" class="col-md-1">编号: '+e.id+'</td>'+
+												'<td class="col-md-1">编号: '+e.id+'</td>'+
 												'<span hidden="true">'+e.id+'</span>'+
 												'<td class="col-md-1">名称: '+e.name+'</td>'+
 												'<td class="col-md-1">单价: '+e.unitPrice+'</td>'+

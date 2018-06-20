@@ -5,8 +5,14 @@
 <mapper namespace="com.medicine.dao.IRoleDao">
 	<!-- 角色信息 -->
 	<select id="queryRole" parameterType="Page" resultType="Role">
-		select r.id,r.name from roles r order by r.id limit 
-		#{offset},#{pageSize}
+		select r.id,r.name from roles r 
+		where 1=1
+		<if test="keyWord!=null">
+			and keyWord like #{keyWord}
+		</if>
+		order by r.id 
+<!-- 		limit  -->
+<!-- 		#{offset},#{pageSize} -->
 	</select>
 	<!-- 角色数量 -->
 	<select id="queryRoleCount" parameterType="Page" resultType="java.lang.Integer">
@@ -16,7 +22,7 @@
 	<insert id="addRole" parameterType="java.lang.String">
 		insert into roles(name) values(#{roleName});
 	</insert>
-	<!-- 编辑用户 -->
+	<!-- 编辑角色 -->
 	<update id="updateRole" parameterType="Role">
 		update roles set name = #{name} where id = #{id}
 	</update>

@@ -41,5 +41,11 @@ public interface IMedicineService {
 	 * @return
 	 */
 	public boolean pass(Integer id);
+	/**
+	 * 根据id删除药品信息
+	 * @param id
+	 * @return
+	 */
+	public boolean deleteDrug(Integer id);
 
 }

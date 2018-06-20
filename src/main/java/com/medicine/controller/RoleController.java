@@ -24,7 +24,7 @@ public class RoleController {
 	 * @param page
 	 * @return
 	 */
-	@RequestMapping(value="/queryRole/{currentPage}/{keyWord}",method=RequestMethod.GET)
+	@RequestMapping("/queryRole")
 	@ResponseBody
 	public PageView queryRole(Page page){
 		PageView pv = this.roleService.queryRole(page);

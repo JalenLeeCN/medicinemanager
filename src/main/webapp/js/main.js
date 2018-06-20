@@ -40,29 +40,28 @@ function draw_user() {
 			window.myDoughnut = new Chart(ctx).Doughnut(result, {responsive : true});
 		},
 		error:function(){
-			alert("获取人员信息失败")
+//			alert("获取人员信息失败")
 		}
 	});
 }
 
 function draw_video() {
-    var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
-    var randomScalingFactor_255 = function(){ return Math.round(Math.random()*255)};
+    var randomScalingFactor = function(){ return Math.round(Math.random()*5)};
+    var randomScalingFactor_255 = function(){ return Math.round(Math.random()*5)};
     var radom_color = function(){
         return '#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).slice(-6);
     }
     var barChartData = {
-        labels : ["January","February","March","April","May","June","July"],
+        labels : ["人员管理员","超级管理员","药品录入员","药品管理员","角色管理员","游客"],
         datasets : [
             {
 //                fillColor : "rgba(" + randomScalingFactor_255() + "," + randomScalingFactor_255() + "," + randomScalingFactor_255() + ",0.5)",
 //                strokeColor : "rgba(" + randomScalingFactor_255()+","+ randomScalingFactor_255()+"," + randomScalingFactor_255() + ",0.8)",
 //                highlightFill: "rgba(" + randomScalingFactor_255() + "," + randomScalingFactor_255() + "," + randomScalingFactor_255() + ",0.75)",
 //                highlightStroke: "rgba(" + randomScalingFactor_255() + "," + randomScalingFactor_255() + "," + randomScalingFactor_255() + ",1)",
-                data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
             },
         ]
-
     }
     var ctx = document.getElementById("chart-video").getContext("2d");
     window.myBar = new Chart(ctx).Bar(barChartData, {

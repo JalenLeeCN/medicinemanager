@@ -7,6 +7,8 @@ public class UserView extends User{
 	/** 0:failed 1:success */
 	private Integer loginstate;//登录成功与否
 	
+	private String roleName;
+	
 	public Integer getLoginstate() {
 		return loginstate;
 	}
@@ -23,6 +25,12 @@ public class UserView extends User{
 	@Override
 	public String toString() {
 		return "UserView [menuPerssion=" + menuPerssion + "]";
+	}
+	public String getRoleName() {
+		return roleName;
+	}
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
 	}
 	
 }

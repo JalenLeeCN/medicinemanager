@@ -67,4 +67,10 @@ public class MedicineController{
 		return this.medicineService.pass(id);
 	}
 	
+	@RequestMapping("/delDrug")
+	@ResponseBody
+	public boolean deleteDrug(Integer id) {
+		return this.medicineService.deleteDrug(id);
+	}
+	
 }
